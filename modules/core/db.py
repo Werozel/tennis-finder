@@ -1,8 +1,8 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, declarative_base
+from flask_sqlalchemy import SQLAlchemy
 
 import config
+from modules.core.app import app
 
-engine = create_engine(config.DB_URL, echo=False)
-SessionMaker = sessionmaker(bind=engine, autoflush=False)
-Base = declarative_base()
+app.config['SQLALCHEMY_DATABASE_URI'] = config.DB_URL
+db = SQLAlchemy(app)
+Base = db.declarative_base()

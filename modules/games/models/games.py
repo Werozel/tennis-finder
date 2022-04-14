@@ -1,10 +1,8 @@
 from enum import Enum
 
-import sqlalchemy
-from sqlalchemy import Column, INT, ForeignKey, TIMESTAMP, BOOLEAN, Table, func
-from sqlalchemy.orm import relationship
+from sqlalchemy import func
 
-from modules.core.db import Base
+from modules.core.db import db
 
 
 class GameStatus(Enum):
@@ -14,25 +12,25 @@ class GameStatus(Enum):
     CANCELED = 3  # Game canceled
 
 
-game_participants_table = Table(
-    'game_participants', Base.metadata,
-    Column("game_id", INT, ForeignKey("games.id")),
-    Column("user_id", INT, ForeignKey("users.id")),
+game_participants_table = db.Table(
+    'game_participants',
+    db.Column("game_id", db.INT, db.ForeignKey("games.id")),
+    db.Column("user_id", db.INT, db.ForeignKey("users.id")),
 )
 
 
-class Game(Base):
+class Game(db.Model):
     __tablename__ = "games"
-    id = Column(INT, primary_key=True)
+    id = db.Column(db.INT, primary_key=True)
 
-    winner_id = Column(INT, ForeignKey("users.id"))
-    game_date = Column(TIMESTAMP)
-    status = Column(sqlalchemy.Enum(GameStatus), default=GameStatus.PENDING)
+    winner_id = db.Column(db.INT, db.ForeignKey("users.id"))
+    game_date = db.Column(db.TIMESTAMP)
+    status = db.Column(db.Enum(GameStatus), default=GameStatus.PENDING)
 
-    players = relationship("Player", secondary=game_participants_table, back_populates="subscribed_players")
+    players = db.relationship("Player", secondary=game_participants_table, back_populates="subscribed_players")
 
-    created_at = Column(TIMESTAMP, server_default=func.now())
-    updated_at = Column(TIMESTAMP, server_default=func.now(), onupdate=func.now())
+    created_at = db.Column(db.TIMESTAMP, server_default=func.now())
+    updated_at = db.Column(db.TIMESTAMP, server_default=func.now(), onupdate=func.now())
 
 
 
