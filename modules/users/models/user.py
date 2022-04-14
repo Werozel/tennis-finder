@@ -13,6 +13,7 @@ def load_user(user_id):
 class User(db.Model, UserMixin):
     __tablename__ = "users"
 
+    # TODO: add city
     id = db.Column(db.INT, primary_key=True)
     full_name = db.Column(db.VARCHAR(100), nullable=False)
     login = db.Column(db.VARCHAR(50), unique=True, nullable=False)
