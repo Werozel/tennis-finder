@@ -1,3 +1,4 @@
-uvicorn
+gunicorn
 flask
 sqlalchemy
+psycopg2
