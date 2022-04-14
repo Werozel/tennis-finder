@@ -13,7 +13,6 @@ def render_login():
 
 @app.route("/users/login", methods=['POST'])
 def submit_login():
-
     form = LoginForm()
     username = form.username.data
     password = form.password.data # TODO hash
