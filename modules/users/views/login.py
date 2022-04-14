@@ -1,5 +1,8 @@
-from flask import render_template, redirect, flash
+from flask import render_template, redirect, flash, url_for
+from flask_login import login_user
 
+from helpers import crypto
+from helpers.args import get_arg_or_none
 from modules.core.app import app
 from modules.users.forms.LoginForm import LoginForm
 from modules.users.models.user import User
@@ -14,14 +17,13 @@ def render_login():
 @app.route("/users/login", methods=['POST'])
 def submit_login():
     form = LoginForm()
-    username = form.username.data
-    password = form.password.data # TODO hash
-    user = User.query.filter_by(username=username, password=password).first()
+    login = form.login.data
+    password = crypto.hash_password(form.password.data)
+    user = User.query.filter_by(login=login, password=password).first()
     if user:
-
-        # TODO complete
-        return redirect('render_profile')
+        login_user(user, remember=form.remember.data, force=True)
+        next_page = get_arg_or_none('next')
+        return redirect(next_page) if next_page else redirect(url_for('render_profile'))
     else:
-        # TODO translate and complete
         flash("Incorrect login!", "danger")
         return render_template("login.html", form=form)
