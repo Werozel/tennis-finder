@@ -4,6 +4,7 @@ config.*
 *.py[cod]
 *$py.class
 gitblah*
+.idea/
 
 # C extensions
 *.so
