@@ -27,7 +27,7 @@ class Game(db.Model):
     game_date = db.Column(db.TIMESTAMP)
     status = db.Column(db.Enum(GameStatus), default=GameStatus.PENDING)
 
-    players = db.relationship("Player", secondary=game_participants_table, back_populates="subscribed_players")
+    players = db.relationship("User", secondary=game_participants_table, back_populates="games")
 
     created_at = db.Column(db.TIMESTAMP, server_default=func.now())
     updated_at = db.Column(db.TIMESTAMP, server_default=func.now(), onupdate=func.now())

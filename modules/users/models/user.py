@@ -1,10 +1,18 @@
+from flask_login import UserMixin
 from sqlalchemy import func
 
+from modules.core.app import login_manager
 from modules.core.db import db
 
 
-class User(db.Model):
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
+
+class User(db.Model, UserMixin):
     __tablename__ = "users"
+
     id = db.Column(db.INT, primary_key=True)
     full_name = db.Column(db.VARCHAR(100), nullable=False)
     login = db.Column(db.VARCHAR(50), unique=True, nullable=False)
