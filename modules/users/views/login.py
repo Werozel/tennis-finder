@@ -1,4 +1,4 @@
-from flask import render_template, redirect, flash, url_for
+from flask import render_template, redirect, flash, url_for, make_response
 from flask_login import login_user
 
 from helpers import crypto
@@ -23,7 +23,9 @@ def submit_login():
     if user:
         login_user(user, remember=form.remember.data, force=True)
         next_page = get_arg_or_none('next')
-        return redirect(next_page) if next_page else redirect(url_for('render_profile'))
+        resp = make_response(redirect(next_page) if next_page else redirect(url_for('render_profile')))
+        resp.set_cookie('language', 'ru')
+        return resp
     else:
         flash("Incorrect login!", "danger")
         return render_template("login.html", form=form)
