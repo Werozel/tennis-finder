@@ -2,6 +2,7 @@
 from flask import Flask
 from flask_bootstrap import Bootstrap
 from flask_login import LoginManager
+from flask_babel import Babel
 
 from config import SECRET_KEY
 
@@ -16,3 +17,5 @@ login_manager.login_message_category = 'warning'
 # TODO: Translate
 login_manager.login_message = "Please log in to view this page."
 # login_manager.localize_callback = gettext
+
+babel = Babel(app)
