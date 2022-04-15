@@ -3,6 +3,7 @@ __pycache__/
 config.*
 *.py[cod]
 *$py.class
+gitblah*
 
 # C extensions
 *.so
