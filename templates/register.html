@@ -4,6 +4,23 @@
 <title>{{ _("Registration") }}</title>
 {% endblock title %}
 
+{% block dialog %}
+    <dialog hidden="true" id="ntrp_info_dialog">
+        {% if skills %}
+            {% for skill in skills %}
+                <div>
+                    <p class="mb-1"><b>{{ skill.title }}</b></p>
+                    <p class="">{{ skill.description }}</p>
+                    {% if not loop.last %}
+                        <legend class="border-bottom mb-2 mt-2"></legend>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <button id="close_dialog_btn" class="btn btn-outline-info">{{ _("Close") }}</button>
+    </dialog>
+{% endblock dialog %}
+
 {% block content %}
 <div class="content-section">
         <form method="POST" action="">
@@ -17,6 +34,13 @@
                 {{ macro.make_string_field(form.password) }}
                 {{ macro.make_string_field(form.confirm_password) }}
                 {{ macro.make_select_field(form.skill) }}
+                {% if skills %}
+                    <div>
+                        <small class="text-muted">
+                            {{ _("More info on NTRP rating") }}<a class="ml-2" href="#" id="ntrp_info_btn">{{ _("here") }}</a>
+                        </small>
+                    </div>
+                {% endif %}
             </fieldset>
             <div class="form-group">
                 <input class="btn btn-outline-info" id="submit" name="submit" type="submit" value="{{ _('Sign up') }}">
@@ -29,3 +53,16 @@
         </small>
     </div>
 {% endblock content %}
+
+{% block script %}
+    <script type="text/JavaScript">
+        let dialog = document.getElementById("ntrp_info_dialog")
+        document.getElementById("ntrp_info_btn").onclick = () => {
+            dialog.hidden = false
+        }
+        document.getElementById("close_dialog_btn").onclick = () => {
+            dialog.hidden = true
+        }
+        dialog.close()
+    </script>
+{% endblock script %}

@@ -5,20 +5,21 @@ from helpers.args import get_arg_or_none
 from modules.core.app import app
 from modules.core.db import db
 from modules.users.forms.register import RegistrationForm
+from modules.users.models.skill import valid_skills
 from modules.users.models.user import User
 
 
 @app.route("/users/register", methods=['GET'])
 def render_register():
     form = RegistrationForm()
-    return render_template("register.html", form=form)
+    return render_template("register.html", form=form, skills=valid_skills)
 
 
 @app.route("/users/register", methods=['POST'])
 def submit_register():
     form = RegistrationForm()
     if not form.validate_on_submit():
-        return render_template("register.html", form=form)
+        return render_template("register.html", form=form, skills=valid_skills)
 
     user = User(
         full_name=form.full_name.data,

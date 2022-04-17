@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/margin.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/padding.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dialog.css') }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='icons/icon2.png') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/vanillaSelectBox.css') }}">
 
@@ -23,11 +24,9 @@
 
     {% block head %}{% endblock head %}
 </head>
-<body>
+<body style="font-family: 'Courier 10 Pitch',system-ui;">
 
-    {% block dialog %}{% endblock dialog %}
-
-    <header class="site-header" style="font-family: 'Courier 10 Pitch',monospace;">
+    <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
             <!-- TODO Change route -->
@@ -46,8 +45,11 @@
     </header>
 
     <main role="main" class="container">
+
+        {% block dialog %}{% endblock dialog %}
+
         <div class="row">
-            <div class="col-md-8 mx-auto" style="font-family: 'Courier 10 Pitch',monospace;">
+            <div class="col-md-8 mx-auto">
 
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}

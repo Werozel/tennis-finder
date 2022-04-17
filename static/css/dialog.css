@@ -1,0 +1,8 @@
+
+dialog {
+    z-index:2000;
+    width:60%;
+    background-color: #effbff;
+    border:1px solid #d7d7d7;
+    border-radius: 12px;
+}
