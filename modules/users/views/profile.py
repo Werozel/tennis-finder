@@ -9,7 +9,8 @@ from modules.users.models.user import User
 @login_required
 def render_profile():
     user = current_user
-    return render_template("profile.html", user=user, my=True)
+    games = user.games
+    return render_template("profile.html", user=user, my=True, games=games)
 
 
 @app.route("/profile/<user_id>", methods=['get'])

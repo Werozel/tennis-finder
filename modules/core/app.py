@@ -10,6 +10,8 @@ from helpers.args import get_cookie
 app = Flask(__name__, template_folder="../../templates", static_folder="../../static")
 app.config['SECRET_KEY'] = SECRET_KEY
 
+app.jinja_env.globals.update(len=len)
+
 bootstrap = Bootstrap(app)
 
 login_manager = LoginManager(app)
