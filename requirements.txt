@@ -9,3 +9,6 @@ flask-wtf
 flask-login
 Flask-Babel
 googletrans
+phonenumbers
+WTForms
+email_validator

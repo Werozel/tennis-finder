@@ -4,7 +4,7 @@ from flask_login import login_user
 from helpers import crypto
 from helpers.args import get_arg_or_none
 from modules.core.app import app
-from modules.users.forms.LoginForm import LoginForm
+from modules.users.forms.login import LoginForm
 from modules.users.models.user import User
 
 

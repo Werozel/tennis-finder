@@ -21,3 +21,19 @@
         {% endfor %}
     </select>
 {%- endmacro %}
+
+{% macro make_string_field(field) -%}
+<div class="form-group">
+    <label for="{{ field.label.field_id }}" class="form-control-label">{{ _(field.label.text) }}</label>
+    {% if field.errors %}
+        {{ field(class="form-control form-control-lg is-invalid") }}
+    <div class="invalid-feedback>">
+        {% for error in field.errors %}
+            <span>{{error}}</span>
+        {% endfor %}
+    </div>
+    {% else %}
+        {{ field(class="form-control form-control-lg") }}
+    {% endif %}
+</div>
+{%- endmacro %}
