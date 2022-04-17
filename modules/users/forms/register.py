@@ -32,7 +32,7 @@ class RegistrationForm(FlaskForm):
     def validate_login(_, login):
         if not re.match("^[A-Za-z0-9_-]*$", login.data):
             raise ValidationError(gettext('Login can only contain letters, numbers, underscores and dashes'))
-        user = User.query.filter_by(username=login.data).first()
+        user = User.query.filter_by(login=login.data).first()
         if user:
             raise ValidationError(gettext('This username is already taken'))
 
