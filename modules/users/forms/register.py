@@ -3,10 +3,20 @@ import re
 import phonenumbers as phonenumbers
 from flask_babel import gettext
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Length, Email, ValidationError
 
 from modules.users.models.user import User
+
+
+skill_choices = [
+    (2.0, "NTRP 2.0 - New player"),
+    (2.5, "NTRP 2.5 - Beginner"),
+    (3.0, "NTRP 3.0 - Beginner to intermediate"),
+    (4.0, "NTRP 4.0 - Intermediate player"),
+    (4.5, "NTRP 4.5 - Advanced player"),
+    (5.0, "NTRP 5.0 - Elite player")
+]
 
 
 class RegistrationForm(FlaskForm):
@@ -16,6 +26,7 @@ class RegistrationForm(FlaskForm):
     phone = StringField('Phone', validators=[Length(max=12)])
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm password', validators=[DataRequired()])
+    skill = SelectField('NTRP Rating', choices=skill_choices)
 
     submit = SubmitField('Sign Up')
 

@@ -16,6 +16,7 @@
                 {{ macro.make_string_field(form.phone) }}
                 {{ macro.make_string_field(form.password) }}
                 {{ macro.make_string_field(form.confirm_password) }}
+                {{ macro.make_select_field(form.skill) }}
             </fieldset>
             <div class="form-group">
                 <input class="btn btn-outline-info" id="submit" name="submit" type="submit" value="{{ _('Sign up') }}">

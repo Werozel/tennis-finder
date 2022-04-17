@@ -26,7 +26,7 @@ def submit_register():
         password=form.password.data,
         email=form.email.data,
         phone=form.phone.data,
-        skill=1.0 # TODO: @Werozel change skill
+        skill=form.skill.data
     )
 
     db.session.add(user)
