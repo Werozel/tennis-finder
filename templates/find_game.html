@@ -1,0 +1,36 @@
+{% extends "main.html" %}
+
+{%  block title %}
+        <title>Find game</title>
+{%  endblock title %}
+
+{% block content %}
+
+	{% for game in games %}
+	    <div class="content-section">
+	        <div class="media">
+	            <!-- TODO: Translate all -->
+	            <div class="media-body">
+	                <h2 class="account-heading">{{ game.name}}</h2>
+                    <legend class="border-bottom mb-4"></legend>
+                    <p class="text-secondary m-bottom-4">On {{ game.game_date }}</p>
+	                {% if game.players %}
+	                    {% set opponent = game.players[0] %}
+	                    <p class="text-secondary m-bottom-4">Opponent: {{ opponent.full_name }}</p>
+                        <p class="text-secondary m-bottom-4">NTRP rating: {{ opponent.skill }}</p>
+	                    <p class="text-secondary m-bottom-4">
+		                    Win rate: {{ opponent.wins / opponent.losses if opponent.losses > 0 else 0 }}
+	                    </p>
+	                {% endif %}
+
+	                <div>
+	                    <a style="display: inline" href="{{ url_for('join_game', game_id=game.id) }}">
+	                        Join
+	                    </a>
+	                </div>
+
+	            </div>
+	        </div>
+        </div>
+	{% endfor %}
+{% endblock content %}
