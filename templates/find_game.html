@@ -16,7 +16,7 @@
                     <p class="text-secondary m-bottom-4">On {{ game.game_date }}</p>
 	                {% if game.players %}
 	                    {% set opponent = game.players[0] %}
-	                    <p class="text-secondary m-bottom-4">Player: {{ opponent.full_name }}</p>
+	                    <p class="text-secondary m-bottom-4">Opponent: {{ opponent.full_name }}</p>
                         <p class="text-secondary m-bottom-4">NTRP rating: {{ opponent.skill }}</p>
 	                    <p class="text-secondary m-bottom-4">
 		                    Win rate: {{ opponent.wins / opponent.losses if opponent.losses > 0 else 0 }}

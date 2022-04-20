@@ -14,6 +14,15 @@ def get_games():
     return []
 
 
+@app.route("/games/<game_id>")
+@login_required
+def render_game_screen(game_id: int):
+    game: Optional[Game] = Game.query.get(game_id)
+    if game is None:
+        abort(404)
+    return render_template("game.html", game=game)
+
+
 @app.route("/games/find_game")
 @login_required
 def render_find_game():

@@ -1,0 +1,43 @@
+{% extends "main.html" %}
+
+{%  block title %}
+        <title>Game observer</title>
+{%  endblock title %}
+
+{% block content %}
+	{% set player_1 = game.players[0] %}
+	{% set player_2 = game.players[1] if game.players|length > 1 else None %}
+    <div class="content-section">
+        <div class="media">
+            <!-- TODO: Translate all -->
+            <div class="media-body">
+                <h2 class="account-heading">{{ game.name }}</h2>
+                <legend class="border-bottom mb-4"></legend>
+                <div style="display: flex; flex-wrap: wrap; flex-direction: row; align-content: center; justify-content: center">
+	                <div style="width: 40%; justify-content: center; align-content: center; text-align: center">
+	                    <img src="{{ url_for('static', filename='profile_pics/default.jpg') }}" alt="profile image"/>
+		                <p class="text-secondary m-bottom-4">{{ player_1.full_name }}</p>
+		                <p class="text-secondary m-bottom-4">NTRP rating: {{ player_1.skill }}</p>
+	                    <p class="text-secondary m-bottom-4">
+		                    Win rate: {{ player_1.wins / player_1.losses if player_1.losses > 0 else 0 }}
+	                    </p>
+	                </div>
+	                <img src="{{ url_for('static', filename='buttons/close-24px.svg') }}" alt="X"/>
+	                <div style="width: 40%; justify-content: center; align-content: center; text-align: center">
+	                    <img src="{{ url_for('static', filename='profile_pics/default.jpg') }}" alt="profile image"/>
+		                {% if player_2 %}
+		                    <p class="text-secondary m-bottom-4">{{ player_2.full_name }}</p>
+			                <p class="text-secondary m-bottom-4">NTRP rating: {{ player_2.skill }}</p>
+		                    <p class="text-secondary m-bottom-4">
+			                    Win rate: {{ player_2.wins / player_2.losses if player_2.losses > 0 else 0 }}
+		                    </p>
+		                {% endif %}
+	                </div>
+                </div>
+
+                <legend/>
+                <p class="text-secondary m-bottom-4 vertical-center">On {{ game.game_date }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
