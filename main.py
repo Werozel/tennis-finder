@@ -13,4 +13,4 @@ def init_db():
 
 if __name__ == "__main__":
     init_db()
-    app.run(port=config.PORT)
+    app.run(port=config.PORT, debug=True)

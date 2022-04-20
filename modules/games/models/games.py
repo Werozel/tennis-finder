@@ -22,6 +22,7 @@ game_participants_table = db.Table(
 class Game(db.Model):
     __tablename__ = "games"
     id = db.Column(db.INT, primary_key=True)
+    name = db.Column(db.VARCHAR(512), nullable=False)
 
     winner_id = db.Column(db.INT, db.ForeignKey("users.id"))
     game_date = db.Column(db.TIMESTAMP)
@@ -31,6 +32,12 @@ class Game(db.Model):
 
     created_at = db.Column(db.TIMESTAMP, server_default=func.now())
     updated_at = db.Column(db.TIMESTAMP, server_default=func.now(), onupdate=func.now())
+
+    def add_player(self, user: 'User'):
+        if self.status != GameStatus.PENDING or user in self.players:
+            raise ValueError
+        self.players.append(user)
+        self.status = GameStatus.IN_PROGRESS
 
 
 
