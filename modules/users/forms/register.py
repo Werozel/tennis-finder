@@ -34,7 +34,10 @@ class RegistrationForm(FlaskForm):
         p = phonenumbers.parse(phone.data)
         if not phonenumbers.is_valid_number(p):
             raise ValidationError(gettext('Invalid phone number'))
-        # TODO: @Werozel check unique
+
+        user = User.query.filter_by(phone=phone.data)
+        if user:
+            raise ValidationError(gettext('This phone number is taken'))
 
     @staticmethod
     def validate_login(_, login):

@@ -21,12 +21,16 @@ class EditProfileForm(FlaskForm):
         self.current_user_email = current_user_email
         self.current_user_phone = current_user_phone
 
-    @staticmethod
-    def validate_phone(_, phone):
+    def validate_phone(self, phone):
         p = phonenumbers.parse(phone.data)
         if not phonenumbers.is_valid_number(p):
             raise ValidationError(gettext('Invalid phone number'))
-        # TODO: @Werozel check unique
+        if self.current_user_phone == phone.data:
+            return
+
+        user = User.query.filter_by(phone=phone.data)
+        if user:
+            raise ValidationError(gettext('This phone number is taken'))
 
     def validate_email(self, email):
         if self.current_user_email == email.data:
