@@ -37,3 +37,20 @@
     {% endif %}
 </div>
 {%- endmacro %}
+
+{% macro make_ntpr_info_dialog(skills) -%}
+    <dialog hidden="true" id="ntrp_info_dialog">
+        {% if skills %}
+            {% for skill in skills %}
+                <div>
+                    <p class="mb-1"><b>{{ skill.title }}</b></p>
+                    <p class="">{{ skill.description }}</p>
+                    {% if not loop.last %}
+                        <legend class="border-bottom mb-2 mt-2"></legend>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <button id="close_dialog_btn" class="btn btn-outline-info">{{ _("Close") }}</button>
+    </dialog>
+{%- endmacro %}

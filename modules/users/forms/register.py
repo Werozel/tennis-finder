@@ -3,6 +3,7 @@ import re
 import phonenumbers as phonenumbers
 from flask_babel import gettext
 from flask_wtf import FlaskForm
+from phonenumbers import NumberParseException
 from wtforms import StringField, PasswordField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Length, Email, ValidationError
 
@@ -34,9 +35,13 @@ class RegistrationForm(FlaskForm):
         try:
             p = phonenumbers.parse(phone.data)
             if not phonenumbers.is_valid_number(p):
-                raise ValueError()
-        except (phonenumbers.phonenumberutil.NumberParseException, ValueError):
+                raise ValueError
+        except (NumberParseException, ValueError):
             raise ValidationError(gettext('Invalid phone number'))
+
+        user = User.query.filter_by(phone=phone.data).first()
+        if user:
+            raise ValidationError(gettext('This phone number is taken'))
 
     @staticmethod
     def validate_login(_, login):
