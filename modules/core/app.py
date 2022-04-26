@@ -13,6 +13,7 @@ app.config['SECRET_KEY'] = SECRET_KEY
 
 app.jinja_env.globals.update(len=len)
 app.jinja_env.globals.update(is_authenticated=is_authenticated)
+app.jinja_env.globals.update(get_cookie=get_cookie)
 
 bootstrap = Bootstrap(app)
 
