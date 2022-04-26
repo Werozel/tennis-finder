@@ -6,6 +6,7 @@ from modules.core.db import Base, db
 from modules.games.routes import game_routes
 from modules.users.views import login, register, profile, edit_profile
 from modules.users.routes import language, logout
+from modules.core.routes import errors
 
 
 def init_db():
