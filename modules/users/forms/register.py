@@ -31,12 +31,10 @@ class RegistrationForm(FlaskForm):
 
     @staticmethod
     def validate_phone(_, phone):
-        try:
-            p = phonenumbers.parse(phone.data)
-            if not phonenumbers.is_valid_number(p):
-                raise ValueError()
-        except (phonenumbers.phonenumberutil.NumberParseException, ValueError):
+        p = phonenumbers.parse(phone.data)
+        if not phonenumbers.is_valid_number(p):
             raise ValidationError(gettext('Invalid phone number'))
+        # TODO: @Werozel check unique
 
     @staticmethod
     def validate_login(_, login):
