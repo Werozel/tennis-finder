@@ -6,11 +6,13 @@ from flask_babel import Babel, gettext
 
 from config import SECRET_KEY
 from helpers.args import get_cookie
+from helpers.user import is_authenticated
 
 app = Flask(__name__, template_folder="../../templates", static_folder="../../static")
 app.config['SECRET_KEY'] = SECRET_KEY
 
 app.jinja_env.globals.update(len=len)
+app.jinja_env.globals.update(is_authenticated=is_authenticated)
 
 bootstrap = Bootstrap(app)
 

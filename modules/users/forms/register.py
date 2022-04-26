@@ -5,7 +5,7 @@ from flask_babel import gettext
 from flask_wtf import FlaskForm
 from phonenumbers import NumberParseException
 from wtforms import StringField, PasswordField, SubmitField, SelectField
-from wtforms.validators import DataRequired, Length, Email, ValidationError
+from wtforms.validators import DataRequired, Length, Email, ValidationError, Optional
 
 from modules.users.models.skill import valid_skills
 from modules.users.models.user import User
@@ -22,8 +22,8 @@ skill_choices = list(
 class RegistrationForm(FlaskForm):
     full_name = StringField('Full name', validators=[DataRequired(), Length(min=3, max=100)])
     login = StringField('Login', validators=[DataRequired(), Length(min=3, max=50)])
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    phone = StringField('Phone', validators=[Length(max=12)])
+    email = StringField('Email', validators=[Optional(strip_whitespace=True), Email()])
+    phone = StringField('Phone', validators=[Optional(strip_whitespace=True), Length(max=12)])
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm password', validators=[DataRequired()])
     skill = SelectField('NTRP Rating', choices=skill_choices)
@@ -32,6 +32,8 @@ class RegistrationForm(FlaskForm):
 
     @staticmethod
     def validate_phone(_, phone):
+        if not phone.data:
+            return
         try:
             p = phonenumbers.parse(phone.data)
             if not phonenumbers.is_valid_number(p):
@@ -53,6 +55,8 @@ class RegistrationForm(FlaskForm):
 
     @staticmethod
     def validate_email(_, email):
+        if not email.data:
+            return
         user = User.query.filter_by(email=email.data).first()
         if user:
             raise ValidationError(gettext('Account with this email already exists'))
