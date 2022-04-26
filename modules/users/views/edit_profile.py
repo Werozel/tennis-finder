@@ -20,6 +20,7 @@ def render_edit_profile():
         current_user_email=user.email,
         current_user_phone=user.phone
     )
+    form.skill.data = user.skill
     return render_template("edit_profile.html", user=user, form=form, skills=valid_skills)
 
 
@@ -31,6 +32,7 @@ def submit_edit_profile():
         current_user_email=user.email,
         current_user_phone=user.phone
     )
+    form.skill.data = user.skill
     if not form.validate_on_submit():
         return render_template("edit_profile.html", user=user, form=form, skills=valid_skills)
 

@@ -1,6 +1,7 @@
 import phonenumbers
 from flask_babel import gettext
 from flask_wtf import FlaskForm
+from phonenumbers import NumberParseException
 from wtforms import StringField, SelectField, SubmitField
 from wtforms.validators import DataRequired, Length, Email, ValidationError
 
@@ -22,13 +23,17 @@ class EditProfileForm(FlaskForm):
         self.current_user_phone = current_user_phone
 
     def validate_phone(self, phone):
-        p = phonenumbers.parse(phone.data)
-        if not phonenumbers.is_valid_number(p):
+        try:
+            p = phonenumbers.parse(phone.data)
+            if not phonenumbers.is_valid_number(p):
+                raise ValueError()
+        except (NumberParseException, ValueError):
             raise ValidationError(gettext('Invalid phone number'))
+
         if self.current_user_phone == phone.data:
             return
 
-        user = User.query.filter_by(phone=phone.data)
+        user = User.query.filter_by(phone=phone.data).first()
         if user:
             raise ValidationError(gettext('This phone number is taken'))
 
