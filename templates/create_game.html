@@ -13,7 +13,7 @@
                 {{ macro.make_string_field(form.name) }}
 
                 <div class="row">
-                    <label for="{{ form.game_date.field_id }}" class="form-control-label">{{ _(form.game_date.label.text) }}</label>
+                    <label for="{{ form.game_date.field_id }}" class="form-control-label ml-3">{{ _(form.game_date.label.text) }}</label>
                     {{ form.game_date(type="datetime-local", class="m-left-16") }}
                 </div>
             </fieldset>

@@ -19,12 +19,10 @@ def render_create_game():
 @login_required
 def create_game():
     form = CreateGameForm()
-    # TODO get raw data and parse it manually
     user = current_user
 
     if not form.validate_on_submit():
         return render_template("create_game.html", form=form)
-
     game = Game(
         name=form.name.data,
         game_date=form.game_date.data,
