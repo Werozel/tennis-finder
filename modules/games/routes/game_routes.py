@@ -7,6 +7,7 @@ from modules.core.app import app
 from modules.core.db import db
 
 from modules.games.models.games import Game, GameStatus
+from modules.games.views.find_game import render_find_game
 
 
 @app.route("/games")
