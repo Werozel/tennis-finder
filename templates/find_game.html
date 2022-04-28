@@ -23,7 +23,7 @@
 	                {% endif %}
 
 	                <div>
-	                    <a style="display: inline" href="{{ url_for('join_game', game_id=game.id) }}">
+	                    <a class="btn btn-outline-info" style="display: inline" href="{{ url_for('join_game', game_id=game.id) }}">
 	                        {{ _("Join") }}
 	                    </a>
 	                </div>
@@ -32,4 +32,7 @@
 	        </div>
         </div>
 	{% endfor %}
+
+	<button class="btn btn-outline-info" onclick="window.location='{{ url_for('render_create_game') }}'">{{ _("Create game") }}</button>
+
 {% endblock content %}

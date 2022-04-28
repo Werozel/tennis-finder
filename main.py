@@ -1,9 +1,12 @@
 import config
 from modules.core.app import app
-from modules.core.db import Base, db
+from modules.core.db import db
 
 # Necessary imports to register
 from modules.games.routes import game_routes
+from modules.games.views import create_game
+from modules.games.views import find_game
+from modules.games.views import game
 from modules.users.views import login, register, profile
 from modules.users.routes import language
 

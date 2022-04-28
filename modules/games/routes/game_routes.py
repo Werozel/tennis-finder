@@ -14,23 +14,6 @@ def get_games():
     return []
 
 
-@app.route("/games/<game_id>")
-@login_required
-def render_game_screen(game_id: int):
-    game: Optional[Game] = Game.query.get(game_id)
-    if game is None:
-        abort(404)
-    return render_template("game.html", game=game)
-
-
-@app.route("/games/find_game")
-@login_required
-def render_find_game():
-    user = current_user
-    games = Game.query.filter(Game.status == GameStatus.PENDING).all()
-    return render_template("find_game.html", games=games)
-
-
 @app.route("/games/join_game/<game_id>")
 @login_required
 def join_game(game_id: int):
@@ -46,4 +29,5 @@ def join_game(game_id: int):
     db.session.add(game)
     db.session.commit()
     return render_find_game()
+
 
