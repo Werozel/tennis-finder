@@ -11,8 +11,11 @@
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">{{ _("Create game") }}</legend>
                 {{ macro.make_string_field(form.name) }}
-	            {{ _('Start date') }}:
-	            {{ form.game_date(type='datetime') }}
+
+                <div class="row">
+                    <label for="{{ form.game_date.field_id }}" class="form-control-label">{{ _(form.game_date.label.text) }}</label>
+                    {{ form.game_date(type="datetime-local", class="m-left-16") }}
+                </div>
             </fieldset>
             <div class="form-group">
                 <input class="btn btn-outline-info" id="submit" name="submit" type="submit" value="{{ _('Create game') }}">

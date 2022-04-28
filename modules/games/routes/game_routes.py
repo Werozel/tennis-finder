@@ -1,6 +1,6 @@
 from typing import Optional
 
-from flask import render_template, abort
+from flask import render_template, abort, redirect, url_for
 from flask_login import current_user, login_required
 
 from modules.core.app import app
@@ -29,6 +29,6 @@ def join_game(game_id: int):
         abort(409)
     db.session.add(game)
     db.session.commit()
-    return render_find_game()
+    return redirect(url_for('render_find_game'))
 
 

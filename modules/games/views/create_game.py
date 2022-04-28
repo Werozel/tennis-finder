@@ -19,12 +19,18 @@ def render_create_game():
 @login_required
 def create_game():
     form = CreateGameForm()
+    # TODO get raw data and parse it manually
     user = current_user
 
-    game = Game(name=form.name.data, game_date=form.game_date.data, players=[user])
+    if not form.validate_on_submit():
+        return render_template("create_game.html", form=form)
+
+    game = Game(
+        name=form.name.data,
+        game_date=form.game_date.data,
+        players=[user]
+    )
     db.session.add(game)
     db.session.commit()
 
-    next_page = get_arg_or_none('next')
-
-    return make_response(redirect(next_page) if next_page else redirect(url_for('render_game_screen', game_id=game.id)))
+    return redirect(url_for('render_game_screen', game_id=game.id))
