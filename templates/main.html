@@ -29,17 +29,36 @@
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
-            <!-- TODO Change route -->
-          <a class="navbar-brand mr-4" href="{{ url_for('render_login') }}">{{ _("Sport") }}</a>
+          <a class="navbar-brand mr-4" href="{{ url_for('render_find_game') }}">{{ _("Find match") }}</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
-            <!-- TODO Change route & translate -->
-              <a class="nav-item nav-link" href="{{ url_for('render_login') }}">{{ _("About") }}</a>
+                <!-- TODO: @Werozel change route -->
+              <a class="nav-item nav-link" href="{{ url_for('render_profile') }}">{{ _("My matches") }}</a>
+            </div>
+
+            <div class="navbar-nav">
+                <a id="profile" class="nav-item nav-link" href=" {{ url_for('render_profile') }}">{{ _("Profile") }}</a>
+                {% if is_authenticated() %}
+                    <a class="nav-item nav-link" href=" {{ url_for('logout_route') }}">{{ _("Log out") }}</a>
+                {% else %}
+                    <a class="nav-item nav-link" href=" {{ url_for('render_login') }}">{{ _("Log in") }}</a>
+                {% endif %}
             </div>
           </div>
+        </div>
+        <div class="m-right-0">
+            {% if get_cookie('language', 'en') == "en" %}
+                <a id='change_language' href="{{ url_for('change_language_route', language='ru') }}">
+                    <img class='icon' src="{{ url_for('static', filename='icons/Russia-icon.png') }}">
+                </a>
+            {% else %}
+                <a id='change_language' href="{{ url_for('change_language_route', language='en') }}">
+                    <img id='language' class='icon' src="{{ url_for('static', filename='icons/United-Kingdom-icon.png') }}">
+                </a>
+            {% endif %}
         </div>
       </nav>
     </header>

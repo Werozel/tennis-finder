@@ -35,7 +35,6 @@ def submit_register():
 
     login_user(user, remember=True, force=True)
     next_page = get_arg_or_none('next')
-    # TODO: redirect to choose skill
     resp = make_response(redirect(next_page) if next_page else redirect(url_for('render_profile')))
     resp.set_cookie('language', 'ru')
     return resp

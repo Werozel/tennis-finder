@@ -22,11 +22,3 @@ def render_user_profile(user_id: int):
         abort(404)
     my = user.id == current_user.id
     return render_template("profile.html", user=user, my=my)
-
-
-@app.route("/profile/edit", methods=['get'])
-@login_required
-def edit_profile():
-    # TODO: complete and add check permission
-    user = current_user
-    return render_template("profile.html", user=user)
