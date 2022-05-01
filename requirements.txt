@@ -2,6 +2,7 @@ gunicorn
 flask
 sqlalchemy
 Flask-SQLAlchemy
+alembic
 psycopg2-binary
 jinja2
 flask-bootstrap

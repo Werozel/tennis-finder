@@ -1,3 +1,6 @@
+import alembic
+import alembic.config
+
 import config
 from modules.core.app import app
 from modules.core.db import db
@@ -11,7 +14,11 @@ from modules.games.views import game, find_game, create_game
 
 
 def init_db():
-    db.create_all()
+    alembic_args = [
+        '--raiseerr',
+        'upgrade', 'head',
+    ]
+    alembic.config.main(argv=alembic_args)
 
 
 if __name__ == "__main__":
