@@ -73,8 +73,9 @@ a.article-title:hover {
   overflow: hidden;
   line-height: 1;
   vertical-align: middle;
-  margin-right: 20px;
   margin-bottom: 16px;
+  width: 200px;
+  height: 200px;
 }
 
 .account-preview-img {

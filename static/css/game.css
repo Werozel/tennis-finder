@@ -1,0 +1,15 @@
+
+.user-info-div {
+    width: 40%;
+    justify-content: center;
+    align-content: center;
+    text-align: center
+}
+
+.horizontal-div {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center
+}

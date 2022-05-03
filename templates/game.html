@@ -11,20 +11,19 @@
     <div class="content-section">
         <div class="media">
             <div class="media-body">
-                <h2 class="account-heading">{{ game.name }}</h2>
-                <legend class="border-bottom mb-4"></legend>
-                <div style="display: flex; flex-wrap: wrap; flex-direction: row; align-content: center; justify-content: center">
-	                <div style="width: 40%; justify-content: center; align-content: center; text-align: center">
-	                    <img src="{{ url_for('static', filename='profile_pics/default.jpg') }}" alt="profile image"/>
+                <legend class="border-bottom mb-4"><h3>{{ game.name }}</h3></legend>
+                <div class="horizontal-div mb-4">
+	                <div class="user-info-div">
+	                    <img class="account-img rounded-circle" src="{{ url_for('static', filename='profile_pics/default.jpg') }}" alt="profile image"/>
 		                <p class="text-secondary m-bottom-4">{{ player_1.full_name }}</p>
 		                <p class="text-secondary m-bottom-4">{{ _("NTRP rating") }}: {{ player_1.skill }}</p>
 	                    <p class="text-secondary m-bottom-4">
 		                    {{ _("Win rate") }}: {{ player_1.wins / player_1.losses if player_1.losses > 0 else 0 }}
 	                    </p>
 	                </div>
-	                <img src="{{ url_for('static', filename='buttons/close-24px.svg') }}" alt="X"/>
-	                <div style="width: 40%; justify-content: center; align-content: center; text-align: center">
-	                    <img src="{{ url_for('static', filename='profile_pics/default.jpg') }}" alt="profile image"/>
+	                <img class="ml-4 mr-4" src="{{ url_for('static', filename='buttons/close-24px.svg') }}" alt="X"/>
+	                <div class="user-info-div">
+	                    <img class="account-img rounded-circle" src="{{ url_for('static', filename='profile_pics/default.jpg') }}" alt="profile image"/>
 		                {% if player_2 %}
 		                    <p class="text-secondary m-bottom-4">{{ player_2.full_name }}</p>
 		                <p class="text-secondary m-bottom-4">{{ _("NTRP rating") }}: {{ player_2.skill }}</p>

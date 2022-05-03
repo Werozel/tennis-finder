@@ -6,7 +6,7 @@
 
 {% block content %}
 
-    <legend class="border-bottom mb-4">{{ _("My matches") }}</legend>
+    <legend class="border-bottom mb-4"><h2>{{ _("My matches") }}</h2></legend>
     {% if games %}
         {% for game in games %}
             {{ macro.make_game_card(game) }}
