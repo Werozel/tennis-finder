@@ -13,3 +13,7 @@
     align-content: center;
     justify-content: center
 }
+
+.winner-border {
+    border: 2px solid #87de4e;
+}

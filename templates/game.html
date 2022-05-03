@@ -17,11 +17,14 @@
                     {% endif %}
                 </div>
 
-{#              TODO: Add winner #}
                 <div class="horizontal-div mb-4">
 	                <div class="user-info-div">
-	                    <img class="account-img rounded-circle" src="{{ url_for('static', filename='profile_pics/default.jpg') }}" alt="profile image"/>
-		                <p class="text-secondary m-bottom-4">{{ player_1.full_name }}</p>
+                        {% if player_1.id == game.winner_id %}
+	                        <img class="account-img rounded-circle winner-border" src="{{ url_for('static', filename='profile_pics/default.jpg') }}" alt="profile image"/>
+		                {% else %}
+                            <img class="account-img rounded-circle" src="{{ url_for('static', filename='profile_pics/default.jpg') }}" alt="profile image"/>
+                        {% endif %}
+                        <p class="text-secondary m-bottom-4">{{ player_1.full_name }}</p>
 		                <p class="text-secondary m-bottom-4">{{ _("NTRP rating") }}: {{ player_1.skill }}</p>
 	                    <p class="text-secondary m-bottom-4">
 		                    {{ _("Win rate") }}: {{ player_1.wins / player_1.losses if player_1.losses > 0 else 0 }}
@@ -29,12 +32,17 @@
 	                </div>
 	                <img class="ml-4 mr-4" src="{{ url_for('static', filename='buttons/close-24px.svg') }}" alt="X"/>
 	                <div class="user-info-div">
-	                    <img class="account-img rounded-circle" src="{{ url_for('static', filename='profile_pics/default.jpg') }}" alt="profile image"/>
+                        {% if player_2.id == game.winner_id %}
+	                        <img class="account-img rounded-circle winner-border" src="{{ url_for('static', filename='profile_pics/default.jpg') }}" alt="profile image"/>
+                        {% else %}
+                            <img class="account-img rounded-circle" src="{{ url_for('static', filename='profile_pics/default.jpg') }}" alt="profile image"/>
+                        {% endif %}
 		                {% if player_2 %}
 		                    <p class="text-secondary m-bottom-4">{{ player_2.full_name }}</p>
-		                <p class="text-secondary m-bottom-4">{{ _("NTRP rating") }}: {{ player_2.skill }}</p>
-	                    <p class="text-secondary m-bottom-4">
-		                    {{ _("Win rate") }}: {{ player_2.wins / player_2.losses if player_2.losses > 0 else 0 }}
+                            <p class="text-secondary m-bottom-4">{{ _("NTRP rating") }}: {{ player_2.skill }}</p>
+                            <p class="text-secondary m-bottom-4">
+                                {{ _("Win rate") }}: {{ player_2.wins / player_2.losses if player_2.losses > 0 else 0 }}
+                            </p>
 		                {% endif %}
 	                </div>
                 </div>
