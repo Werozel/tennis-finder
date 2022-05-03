@@ -8,6 +8,6 @@ from modules.games.models.games import Game, GameStatus
 @app.route("/games/find_game")
 @login_required
 def render_find_game():
-    user = current_user
+    # TODO: Complete sorting algorythm
     games = Game.query.filter(Game.status == GameStatus.PENDING).all()
     return render_template("find_game.html", games=games)

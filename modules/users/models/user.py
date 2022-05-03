@@ -24,7 +24,6 @@ class User(db.Model, UserMixin):
 
     wins = db.Column(db.INT, default=0)
     losses = db.Column(db.INT, default=0)
-    cancels = db.Column(db.INT, default=0)
 
     games = db.relationship("Game", secondary=game_participants_table, back_populates="players")
 

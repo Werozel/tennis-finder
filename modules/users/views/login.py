@@ -18,7 +18,7 @@ def render_login():
 def submit_login():
     form = LoginForm()
     login = form.login.data
-    password = crypto.hash_password(form.password.data)
+    password = crypto.hash_password(form.password.data, login)
     user = User.query.filter_by(login=login, password=password).first()
     if user:
         login_user(user, remember=form.remember.data, force=True)

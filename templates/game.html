@@ -4,7 +4,6 @@
         <title>{{ _("Game observer") }}</title>
 {%  endblock title %}
 
-<!-- TODO: @Werozel fix design -->
 {% block content %}
 	{% set player_1 = game.players[0] %}
 	{% set player_2 = game.players[1] if game.players|length > 1 else None %}
@@ -15,11 +14,10 @@
                     <legend class="media-body border-bottom mb-4"><h3>{{ game.name }}</h3></legend>
                     {% if can_join %}
                         <a class="media-right" href="{{ url_for("join_game", game_id=game.id) }}">{{ _("Join") }}</a>
-                    {% else %}
-                        <a class="media-right" href="{{ url_for("leave_game", game_id=game.id) }}">{{ _("Leave") }}</a>
                     {% endif %}
                 </div>
 
+{#              TODO: Add winner #}
                 <div class="horizontal-div mb-4">
 	                <div class="user-info-div">
 	                    <img class="account-img rounded-circle" src="{{ url_for('static', filename='profile_pics/default.jpg') }}" alt="profile image"/>
@@ -42,7 +40,7 @@
                 </div>
 
                 <legend/>
-                <p class="text-secondary m-bottom-4 vertical-center">{{ _("On") }} {{ game.game_date }}</p>
+                <p class="text-secondary m-bottom-4 vertical-center">{{ _("Time") }}: {{ format_date_time(game.game_date) }}</p>
             </div>
         </div>
     </div>

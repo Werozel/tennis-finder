@@ -9,7 +9,6 @@ class GameStatus(Enum):
     PENDING = 0  # Waiting for 2nd player
     IN_PROGRESS = 1  # Game in progress
     COMPLETED = 2  # Game completed
-    CANCELED = 3  # Game canceled
 
 
 game_participants_table = db.Table(
@@ -38,6 +37,3 @@ class Game(db.Model):
             raise ValueError
         self.players.append(user)
         self.status = GameStatus.IN_PROGRESS
-
-
-
