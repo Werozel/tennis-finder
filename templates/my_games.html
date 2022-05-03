@@ -5,14 +5,25 @@
 {% endblock title %}
 
 {% block content %}
-
     <legend class="border-bottom mb-4"><h2>{{ _("My matches") }}</h2></legend>
-    {% if games %}
-        {% for game in games %}
+    {% if pending_games and len(pending_games) > 0 %}
+        <legend class="mb-4"><h4>{{ _("Pending matches") }}</h4></legend>
+        {% for game in pending_games %}
             {{ macro.make_game_card(game) }}
         {% endfor %}
-    {% else %}
-        <h4>{{ _("No matches here yet!") }}</h4>
-        <a class="btn btn-outline-info" href="{{ url_for("render_find_game") }}">{{ _("Find match") }}</a>
+    {% endif %}
+
+    {% if progress_games and len(progress_games) > 0 %}
+        <legend class="mb-4"><h4>{{ _("Matches in progress") }}</h4></legend>
+        {% for game in progress_games %}
+            {{ macro.make_game_card(game) }}
+        {% endfor %}
+    {% endif %}
+
+    {% if completed_games and len(completed_games) > 0 %}
+        <legend class="mb-4"><h4>{{ _("Completed matches") }}</h4></legend>
+        {% for game in completed_games %}
+            {{ macro.make_game_card(game) }}
+        {% endfor %}
     {% endif %}
 {% endblock content %}

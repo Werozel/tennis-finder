@@ -1,15 +1,15 @@
 {% extends "main.html" %}
 
-{%  block title %}
-        <title>Profile</title>
-{%  endblock title %}
+{% block title %}
+    <title>Profile</title>
+{% endblock title %}
 
 {% block content %}
 
     <div class="content-section">
         <div class="media">
             <div class="media-body">
-                <h2 class="account-heading">{{ user.full_name}}</h2>
+                <h2 class="account-heading">{{ user.full_name }}</h2>
                 {% if user.phone %}
                     <p class="text-secondary m-bottom-4">{{ _("Phone") }}: {{ user.phone }}</p>
                 {% endif %}
@@ -28,31 +28,16 @@
 
             </div>
 
-            {%  if my  %}
+            {% if my %}
                 <div class="media-right">
                     <a href="{{ url_for('render_edit_profile') }}">
                         <img title="{{ _("Edit profile") }}"
-                             src="{{ url_for('static', filename='buttons/edit-24px.svg')}}" alt="none"/>
+                             src="{{ url_for('static', filename='buttons/edit-24px.svg') }}" alt="none"/>
                     </a>
                 </div>
-            {%  endif %}
-
-        </div>
-
-        </div>
-            {% if games and len(games) > 0 %}
-                <legend class="border-bottom mb-4 mt-2"></legend>
-                <div class="container padding-left-0">
-                    <h5 class="align-left">{{ _("Matches") }}: </h5>
-                    <div class="align-left col-sm-12">
-                        {% for game in games %}
-                            <p class="m-bottom-4">
-{#                            TODO: Change route#}
-                                <a href="{{ url_for('render_game_screen', id=game.id)}}" class="text-secondary"> {{ game.name }}</a>
-                            </p>
-                        {% endfor %}
-                    </div>
-                </div>
             {% endif %}
+
+        </div>
+
     </div>
 {% endblock content %}
