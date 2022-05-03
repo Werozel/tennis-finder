@@ -11,7 +11,15 @@
     <div class="content-section">
         <div class="media">
             <div class="media-body">
-                <legend class="border-bottom mb-4"><h3>{{ game.name }}</h3></legend>
+                <div class="media">
+                    <legend class="media-body border-bottom mb-4"><h3>{{ game.name }}</h3></legend>
+                    {% if can_join %}
+                        <a class="media-right" href="{{ url_for("join_game", game_id=game.id) }}">{{ _("Join") }}</a>
+                    {% else %}
+                        <a class="media-right" href="{{ url_for("leave_game", game_id=game.id) }}">{{ _("Leave") }}</a>
+                    {% endif %}
+                </div>
+
                 <div class="horizontal-div mb-4">
 	                <div class="user-info-div">
 	                    <img class="account-img rounded-circle" src="{{ url_for('static', filename='profile_pics/default.jpg') }}" alt="profile image"/>
