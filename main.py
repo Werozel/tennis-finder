@@ -10,7 +10,7 @@ from modules.games.routes import game_routes
 from modules.users.views import login, register, profile, edit_profile
 from modules.users.routes import language, logout
 from modules.core.routes import errors
-from modules.games.views import game, find_game, create_game
+from modules.games.views import game, find_game, create_game, user_games
 
 
 def init_db():

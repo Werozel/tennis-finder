@@ -1,0 +1,18 @@
+{% extends "main.html" %}
+
+{% block title %}
+    <title>{{ _("My matches") }}</title>
+{% endblock title %}
+
+{% block content %}
+
+    <legend class="border-bottom mb-4">{{ _("My matches") }}</legend>
+    {% if games %}
+        {% for game in games %}
+            {{ macro.make_game_card(game) }}
+        {% endfor %}
+    {% else %}
+        <h4>{{ _("No matches here yet!") }}</h4>
+        <a class="btn btn-outline-info" href="{{ url_for("render_find_game") }}">{{ _("Find match") }}</a>
+    {% endif %}
+{% endblock content %}
