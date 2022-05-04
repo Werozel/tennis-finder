@@ -29,3 +29,6 @@ class User(db.Model, UserMixin):
 
     created_at = db.Column(db.TIMESTAMP, server_default=func.now())
     updated_at = db.Column(db.TIMESTAMP, server_default=func.now(), onupdate=func.now())
+
+    def __eq__(self, other):
+        return self.id == other.id

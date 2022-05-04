@@ -1,12 +1,32 @@
 {% extends "main.html" %}
 
-{%  block title %}
-        <title>{{ _("Game observer") }}</title>
-{%  endblock title %}
+{% block title %}
+    <title>{{ game.name }}</title>
+{% endblock title %}
+
+{% set player_1 = game.players[0] %}
+{% set player_2 = game.players[1] if game.players|length > 1 else None %}
+
+{% block dialog %}
+    {% if can_choose_winner %}
+        <dialog hidden="true" id="choose_winner_dialog" class="mt-2" style="width: 20%">
+            <legend class="media-body border-bottom mb-4"><h3>{{ _("Choose winner") }}</h3></legend>
+            <div class="media mb-3">
+                <p class="media-body">{{ player_1.full_name }}</p>
+                <a class="media-right btn btn-outline-info"
+                   href="{{ url_for("submit_winner", game_id=game.id, winner_id=player_1.id) }}">{{ _("Choose") }}</a>
+            </div>
+            <div class="media mb-3">
+                <p class="media-body">{{ player_2.full_name }}</p>
+                <a class="media-right btn btn-outline-info"
+                   href="{{ url_for("submit_winner", game_id=game.id, winner_id=player_2.id) }}">{{ _("Choose") }}</a>
+            </div>
+            <button id="close_dialog_btn" class="btn btn-outline-info">{{ _("Close") }}</button>
+        </dialog>
+    {% endif %}
+{% endblock dialog %}
 
 {% block content %}
-	{% set player_1 = game.players[0] %}
-	{% set player_2 = game.players[1] if game.players|length > 1 else None %}
     <div class="content-section">
         <div class="media">
             <div class="media-body">
@@ -18,38 +38,65 @@
                 </div>
 
                 <div class="horizontal-div mb-4">
-	                <div class="user-info-div">
+                    <div class="user-info-div">
                         {% if player_1.id == game.winner_id %}
-	                        <img class="account-img rounded-circle winner-border" src="{{ url_for('static', filename='profile_pics/default.jpg') }}" alt="profile image"/>
-		                {% else %}
-                            <img class="account-img rounded-circle" src="{{ url_for('static', filename='profile_pics/default.jpg') }}" alt="profile image"/>
+                            <img class="account-img rounded-circle winner-border"
+                                 src="{{ url_for('static', filename='profile_pics/default.jpg') }}"
+                                 alt="profile image"/>
+                        {% else %}
+                            <img class="account-img rounded-circle"
+                                 src="{{ url_for('static', filename='profile_pics/default.jpg') }}"
+                                 alt="profile image"/>
                         {% endif %}
                         <p class="text-secondary m-bottom-4">{{ player_1.full_name }}</p>
-		                <p class="text-secondary m-bottom-4">{{ _("NTRP rating") }}: {{ player_1.skill }}</p>
-	                    <p class="text-secondary m-bottom-4">
-		                    {{ _("Win rate") }}: {{ player_1.wins / player_1.losses if player_1.losses > 0 else 0 }}
-	                    </p>
-	                </div>
-	                <img class="ml-4 mr-4" src="{{ url_for('static', filename='buttons/close-24px.svg') }}" alt="X"/>
-	                <div class="user-info-div">
+                        <p class="text-secondary m-bottom-4">{{ _("NTRP rating") }}: {{ player_1.skill }}</p>
+                        <p class="text-secondary m-bottom-4">
+                            {{ _("Win rate") }}: {{ player_1.wins / player_1.losses if player_1.losses > 0 else 0 }}
+                        </p>
+                    </div>
+                    <img class="ml-4 mr-4" src="{{ url_for('static', filename='buttons/close-24px.svg') }}" alt="X"/>
+                    <div class="user-info-div">
                         {% if player_2.id == game.winner_id %}
-	                        <img class="account-img rounded-circle winner-border" src="{{ url_for('static', filename='profile_pics/default.jpg') }}" alt="profile image"/>
+                            <img class="account-img rounded-circle winner-border"
+                                 src="{{ url_for('static', filename='profile_pics/default.jpg') }}"
+                                 alt="profile image"/>
                         {% else %}
-                            <img class="account-img rounded-circle" src="{{ url_for('static', filename='profile_pics/default.jpg') }}" alt="profile image"/>
+                            <img class="account-img rounded-circle"
+                                 src="{{ url_for('static', filename='profile_pics/default.jpg') }}"
+                                 alt="profile image"/>
                         {% endif %}
-		                {% if player_2 %}
-		                    <p class="text-secondary m-bottom-4">{{ player_2.full_name }}</p>
+                        {% if player_2 %}
+                            <p class="text-secondary m-bottom-4">{{ player_2.full_name }}</p>
                             <p class="text-secondary m-bottom-4">{{ _("NTRP rating") }}: {{ player_2.skill }}</p>
                             <p class="text-secondary m-bottom-4">
                                 {{ _("Win rate") }}: {{ player_2.wins / player_2.losses if player_2.losses > 0 else 0 }}
                             </p>
-		                {% endif %}
-	                </div>
+                        {% endif %}
+                    </div>
                 </div>
 
-                <legend/>
                 <p class="text-secondary m-bottom-4 vertical-center">{{ _("Time") }}: {{ format_date_time(game.game_date) }}</p>
+                {% if can_choose_winner %}
+                    <div class="vertical-center w-100 mt-3 mb-1">
+                        <button id="choose_winner_btn" class="btn btn-outline-info">{{ _("Choose winner") }}</button>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>
 {% endblock content %}
+
+{% block script %}
+    {% if can_choose_winner %}
+        <script type="text/JavaScript">
+            let dialog = document.getElementById("choose_winner_dialog")
+            document.getElementById("choose_winner_btn").onclick = () => {
+                dialog.hidden = false
+            }
+            document.getElementById("close_dialog_btn").onclick = () => {
+                dialog.hidden = true
+            }
+            dialog.close()
+        </script>
+    {% endif %}
+{% endblock script %}
