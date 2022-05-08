@@ -1,3 +1,4 @@
+"""Translate helpers."""
 from googletrans import Translator
 from tempfile import mkstemp
 from shutil import move, copymode
@@ -21,6 +22,7 @@ is_windows = sys.platform.startswith('win32')
 
 
 def write_new(text: str):
+    """Write new text with correct encoding."""
     if is_windows:
         text.encode("utf8")
     new_file.write(text)

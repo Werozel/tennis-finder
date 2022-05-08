@@ -1,6 +1,7 @@
+"""This module contains /games/* routes."""
 from typing import Optional
 
-from flask import render_template, abort, redirect, url_for, flash
+from flask import abort, redirect, url_for, flash
 from flask_babel import gettext
 from flask_login import current_user, login_required
 
@@ -15,6 +16,7 @@ from modules.users.models.user import User
 @app.route("/games/join_game/<game_id>")
 @login_required
 def join_game(game_id: int):
+    """Join game with <game_id>."""
     user: User = current_user
     game: Optional[Game] = Game.query.get(game_id)
     if not game:
@@ -34,6 +36,7 @@ def join_game(game_id: int):
 @app.route("/games/submit_winner/<game_id>")
 @login_required
 def submit_winner(game_id: int):
+    """Set winner in a Game with game_id."""
     user: User = current_user
     game: Game = Game.query.get(game_id)
     if not game:

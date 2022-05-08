@@ -1,3 +1,4 @@
+"""This module contains registration form."""
 import re
 
 import phonenumbers as phonenumbers
@@ -20,6 +21,8 @@ skill_choices = list(
 
 
 class RegistrationForm(FlaskForm):
+    """This is the registration form."""
+
     full_name = StringField('Full name', validators=[DataRequired(), Length(min=3, max=100)])
     login = StringField('Login', validators=[DataRequired(), Length(min=3, max=50)])
     email = StringField('Email', validators=[Optional(strip_whitespace=True), Email()])
@@ -32,6 +35,7 @@ class RegistrationForm(FlaskForm):
 
     @staticmethod
     def validate_phone(_, phone):
+        """Validate and check uniqueness of the phone number."""
         if not phone.data:
             return
         try:
@@ -47,6 +51,7 @@ class RegistrationForm(FlaskForm):
 
     @staticmethod
     def validate_login(_, login):
+        """Validate user login."""
         if not re.match("^[A-Za-z0-9_-]*$", login.data):
             raise ValidationError(gettext('Login can only contain letters, numbers, underscores and dashes'))
         user = User.query.filter_by(login=login.data).first()
@@ -55,6 +60,7 @@ class RegistrationForm(FlaskForm):
 
     @staticmethod
     def validate_email(_, email):
+        """Validate user email."""
         if not email.data:
             return
         user = User.query.filter_by(email=email.data).first()
@@ -63,5 +69,6 @@ class RegistrationForm(FlaskForm):
 
     @staticmethod
     def validate_confirm_password(form, confirm_password):
+        """Validate passwords match."""
         if not form.password.data == confirm_password.data:
             raise ValidationError(gettext("Passwords doesn't match!"))

@@ -1,13 +1,16 @@
+"""This module contains functions that process incoming args."""
 from flask import request, abort
 import logging
 
 
 def get_cookie(key: str, default):
+    """Get cookie from a request."""
     res = request.cookies.get(key)
     return res if res is not None else default
 
 
 def get_arg_or_400(arg: str, to_int: bool = False):
+    """Get arg from request or throw code 400."""
     try:
         res = request.args.get(arg)
         if res is None:
@@ -19,6 +22,7 @@ def get_arg_or_400(arg: str, to_int: bool = False):
 
 
 def get_arg_or_none(arg: str, to_int: bool = False):
+    """Get arg from request or None."""
     try:
         res = request.args.get(arg)
         return int(res) if res and to_int else res

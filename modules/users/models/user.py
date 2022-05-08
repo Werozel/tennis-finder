@@ -1,3 +1,4 @@
+"""This module contains user models."""
 from flask_login import UserMixin
 from sqlalchemy import func
 
@@ -8,10 +9,13 @@ from modules.games.models.games import game_participants_table
 
 @login_manager.user_loader
 def load_user(user_id):
+    """Load user by user_id."""
     return User.query.get(int(user_id))
 
 
 class User(db.Model, UserMixin):
+    """This is the User class, mapped to users table."""
+
     __tablename__ = "users"
 
     id = db.Column(db.INT, primary_key=True)
@@ -31,4 +35,5 @@ class User(db.Model, UserMixin):
     updated_at = db.Column(db.TIMESTAMP, server_default=func.now(), onupdate=func.now())
 
     def __eq__(self, other):
+        """Check equality."""
         return self.id == other.id

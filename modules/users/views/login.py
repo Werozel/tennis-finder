@@ -1,3 +1,4 @@
+"""This module contains /users/login routes."""
 from flask import render_template, redirect, flash, url_for, make_response
 from flask_login import login_user
 
@@ -10,12 +11,14 @@ from modules.users.models.user import User
 
 @app.route("/users/login", methods=['GET'])
 def render_login():
+    """Render login page."""
     form = LoginForm()
     return render_template("login.html", form=form)
 
 
 @app.route("/users/login", methods=['POST'])
 def submit_login():
+    """Try to log in user with provided credentials."""
     form = LoginForm()
     login = form.login.data
     password = crypto.hash_password(form.password.data, login)

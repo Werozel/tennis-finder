@@ -1,7 +1,7 @@
-from flask import render_template, make_response, redirect, url_for
+"""This module contains /games/create_game routes."""
+from flask import render_template, redirect, url_for
 from flask_login import login_required, current_user
 
-from helpers.args import get_arg_or_none
 from modules.core.app import app
 from modules.core.db import db
 from modules.games.forms.create_game import CreateGameForm
@@ -11,6 +11,7 @@ from modules.games.models.games import Game
 @app.route("/games/create_game", methods=['GET'])
 @login_required
 def render_create_game():
+    """Render create game screen."""
     form = CreateGameForm()
     return render_template("create_game.html", form=form)
 
@@ -18,6 +19,7 @@ def render_create_game():
 @app.route("/games/create_game", methods=['POST'])
 @login_required
 def create_game():
+    """Create new game with provided params."""
     form = CreateGameForm()
     user = current_user
 

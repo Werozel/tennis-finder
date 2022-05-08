@@ -13,3 +13,5 @@ googletrans
 phonenumbers
 WTForms
 email_validator
+flake8
+flake8_docstrings

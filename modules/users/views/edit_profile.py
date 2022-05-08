@@ -1,3 +1,4 @@
+"""This module contains /profile/edit routes."""
 from flask import render_template, redirect, url_for
 from flask_login import login_required, current_user
 
@@ -11,6 +12,7 @@ from modules.users.models.user import User
 @app.route("/profile/edit", methods=['get'])
 @login_required
 def render_edit_profile():
+    """Render edit profile page."""
     user: User = current_user
     form = EditProfileForm(
         full_name=user.full_name,
@@ -27,6 +29,7 @@ def render_edit_profile():
 @app.route("/profile/edit", methods=['post'])
 @login_required
 def submit_edit_profile():
+    """Edit user profile with provided args."""
     user: User = current_user
     form = EditProfileForm(
         current_user_email=user.email,

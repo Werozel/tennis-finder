@@ -1,13 +1,13 @@
+"""This module contains /change_language routes."""
 from flask import request, make_response, redirect
-from flask_login import current_user
 
 from helpers.args import get_arg_or_none
 from modules.core.app import app
-from modules.core.db import db
 
 
 @app.route("/change_language")
 def change_language_route():
+    """Change user language to language param."""
     new_language = get_arg_or_none('language')
     if new_language not in ['en', 'ru']:
         curr_language = request.cookies.get('language')

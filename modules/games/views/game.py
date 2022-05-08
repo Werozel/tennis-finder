@@ -1,3 +1,4 @@
+"""This module contains /games/create_game routes."""
 from typing import Optional
 
 from flask import render_template, abort
@@ -10,6 +11,7 @@ from modules.games.models.games import Game, GameStatus
 @app.route("/games/<game_id>")
 @login_required
 def render_game_screen(game_id: int):
+    """Render game screen."""
     game: Optional[Game] = Game.query.get(game_id)
     if game is None:
         abort(404)

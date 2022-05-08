@@ -1,3 +1,4 @@
+"""This module contains edit profile form."""
 import phonenumbers
 from flask_babel import gettext
 from flask_wtf import FlaskForm
@@ -10,6 +11,8 @@ from modules.users.models.user import User
 
 
 class EditProfileForm(FlaskForm):
+    """This is the create game form."""
+
     full_name = StringField('Full name', validators=[DataRequired(), Length(min=3, max=100)])
     email = StringField('Email', validators=[Optional(strip_whitespace=True), Length(min=0, max=100), Email()])
     phone = StringField('Phone', validators=[Optional(strip_whitespace=True), Length(min=0, max=12)])
@@ -18,11 +21,20 @@ class EditProfileForm(FlaskForm):
     submit = SubmitField('Sign Up')
 
     def __init__(self, current_user_email, current_user_phone, *args, **kwargs):
+        """
+        Form init method.
+
+        :param current_user_email: str - user email
+        :param current_user_phone: str - user phone
+        :param args:
+        :param kwargs:
+        """
         super().__init__(*args, **kwargs)
         self.current_user_email = current_user_email
         self.current_user_phone = current_user_phone
 
     def validate_phone(self, phone):
+        """Validate and check uniqueness of the phone number."""
         if not phone.data:
             return
         try:
@@ -40,6 +52,7 @@ class EditProfileForm(FlaskForm):
             raise ValidationError(gettext('This phone number is taken'))
 
     def validate_email(self, email):
+        """Validate user email."""
         if not email.data:
             return
         if self.current_user_email == email.data:

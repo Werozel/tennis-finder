@@ -1,3 +1,4 @@
+"""This module contains /users/register routes."""
 from flask import render_template, redirect, url_for, make_response
 from flask_login import login_user
 
@@ -12,12 +13,14 @@ from modules.users.models.user import User
 
 @app.route("/users/register", methods=['GET'])
 def render_register():
+    """Render GET /users/register request screen."""
     form = RegistrationForm()
     return render_template("register.html", form=form, skills=valid_skills)
 
 
 @app.route("/users/register", methods=['POST'])
 def submit_register():
+    """Create user with provided credentials."""
     form = RegistrationForm()
     if not form.validate_on_submit():
         return render_template("register.html", form=form, skills=valid_skills)

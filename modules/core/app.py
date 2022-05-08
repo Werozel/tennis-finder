@@ -1,4 +1,4 @@
-
+"""This module contains initial Flask app setup."""
 from flask import Flask, g
 from flask_bootstrap import Bootstrap
 from flask_login import LoginManager
@@ -30,11 +30,13 @@ babel = Babel(app)
 
 @babel.localeselector
 def get_locale():
+    """Get babel locale from cookie."""
     return get_cookie('language', 'ru')
 
 
 @babel.timezoneselector
 def get_timezone():
+    """Get user timezone."""
     user = getattr(g, 'user', None)
     if user is not None:
         return user.timezone

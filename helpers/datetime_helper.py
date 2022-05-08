@@ -1,3 +1,4 @@
+"""This module contains datetime helpers."""
 import datetime
 
 from flask_babel import format_datetime
@@ -11,6 +12,7 @@ DATETIME_FORMATS = {
 
 
 def format_date_time(dt) -> str:
+    """Format datetime depending on language."""
     dt_format = DATETIME_FORMATS.get(get_cookie('language', 'ru'))
     if not dt_format:
         return format_datetime(dt, "EEEE, MMM dd, HH:mm").title()

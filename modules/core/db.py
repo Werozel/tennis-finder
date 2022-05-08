@@ -1,3 +1,4 @@
+"""This module contains initial Flask app setup."""
 from flask_sqlalchemy import SQLAlchemy
 
 import config
