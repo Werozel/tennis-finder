@@ -1,4 +1,6 @@
 """This module contains initial Flask app setup."""
+import os
+
 from flask import Flask, g
 from flask_bootstrap import Bootstrap
 from flask_login import LoginManager
@@ -9,7 +11,11 @@ from helpers.args import get_cookie
 from helpers.datetime_helper import format_date_time
 from helpers.user import is_authenticated
 
-app = Flask(__name__, template_folder="../../templates", static_folder="../../static")
+cwd = os.getcwd()
+app = Flask(__name__,
+            template_folder=cwd + "/templates",
+            static_folder=cwd + "/static",
+            root_path=cwd)
 app.config['SECRET_KEY'] = SECRET_KEY
 
 app.jinja_env.globals.update(len=len)

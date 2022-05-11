@@ -2,8 +2,9 @@
 import phonenumbers
 from flask_babel import gettext
 from flask_wtf import FlaskForm
+from flask_wtf.file import FileAllowed, FileSize
 from phonenumbers import NumberParseException
-from wtforms import StringField, SelectField, SubmitField
+from wtforms import StringField, SelectField, SubmitField, FileField
 from wtforms.validators import DataRequired, Length, Email, ValidationError, Optional
 
 from modules.users.forms.register import skill_choices
@@ -14,6 +15,7 @@ class EditProfileForm(FlaskForm):
     """This is the create game form."""
 
     full_name = StringField('Full name', validators=[DataRequired(), Length(min=3, max=100)])
+    picture = FileField('Profile image', validators=[FileAllowed(['jpg', 'png', 'jpeg']), FileSize(3_145_728)])
     email = StringField('Email', validators=[Optional(strip_whitespace=True), Length(min=0, max=100), Email()])
     phone = StringField('Phone', validators=[Optional(strip_whitespace=True), Length(min=0, max=12)])
     skill = SelectField('NTRP Rating', choices=skill_choices)

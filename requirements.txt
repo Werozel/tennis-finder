@@ -15,3 +15,5 @@ WTForms
 email_validator
 flake8
 flake8_docstrings
+numpy
+Pillow

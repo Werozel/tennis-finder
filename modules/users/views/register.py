@@ -34,6 +34,9 @@ def submit_register():
         phone=form.phone.data,
         skill=form.skill.data
     )
+    picture = form.picture.data
+    if picture:
+        user.set_user_picture(picture)
 
     db.session.add(user)
     db.session.commit()

@@ -44,6 +44,11 @@ def submit_edit_profile():
     user.phone = form.phone.data
     user.skill = form.skill.data
 
+    picture = form.picture.data
+    if picture:
+        user.delete_user_picture()
+        user.set_user_picture(picture)
+
     db.session.add(user)
     db.session.commit()
 

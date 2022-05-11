@@ -4,8 +4,9 @@ import re
 import phonenumbers as phonenumbers
 from flask_babel import gettext
 from flask_wtf import FlaskForm
+from flask_wtf.file import FileAllowed, FileSize
 from phonenumbers import NumberParseException
-from wtforms import StringField, PasswordField, SubmitField, SelectField
+from wtforms import StringField, PasswordField, SubmitField, SelectField, FileField
 from wtforms.validators import DataRequired, Length, Email, ValidationError, Optional
 
 from modules.users.models.skill import valid_skills
@@ -24,6 +25,7 @@ class RegistrationForm(FlaskForm):
     """This is the registration form."""
 
     full_name = StringField('Full name', validators=[DataRequired(), Length(min=3, max=100)])
+    picture = FileField('Profile image', validators=[FileAllowed(['jpg', 'png', 'jpeg']), FileSize(3_145_728)])
     login = StringField('Login', validators=[DataRequired(), Length(min=3, max=50)])
     email = StringField('Email', validators=[Optional(strip_whitespace=True), Email()])
     phone = StringField('Phone', validators=[Optional(strip_whitespace=True), Length(max=12)])
