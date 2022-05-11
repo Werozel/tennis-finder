@@ -18,7 +18,6 @@ __all__ = [
     game, find_game, create_game, user_games
 ]
 
-
 def init_db():
     """
     Init db and make all pending migrations.

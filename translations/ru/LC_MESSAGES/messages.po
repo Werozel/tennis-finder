@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-05-19 15:17+0300\n"
-"PO-Revision-Date: 2022-05-19 15:17+0300\n"
+"POT-Creation-Date: 2022-05-23 21:54+0300\n"
+"PO-Revision-Date: 2022-05-23 21:54+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -19,332 +19,362 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.10.1\n"
 
-#: modules/core/app.py:17
+#: modules/core/app.py:31
 msgid "Please log in to view this page."
-msgstr "Войдите в аккаунт, чтобы увидеть эту страницу"
+msgstr ""
 
-#: templates/login.html:4 templates/login.html:28
+#: modules/games/forms/create_game.py:12
+msgid "Name"
+msgstr ""
+
+#: modules/games/forms/create_game.py:13
+msgid "Game date"
+msgstr ""
+
+#: modules/games/forms/create_game.py:15
+msgid "Create"
+msgstr ""
+
+#: modules/games/routes/game_routes.py:28
+msgid "You already joined this match"
+msgstr ""
+
+#: modules/users/forms/edit_profile.py:17 modules/users/forms/register.py:27
+msgid "Full name"
+msgstr ""
+
+#: modules/users/forms/edit_profile.py:18 modules/users/forms/register.py:28
+msgid "Profile image"
+msgstr ""
+
+#: modules/users/forms/edit_profile.py:19 modules/users/forms/register.py:30
+#: templates/profile.html:18
+msgid "Email"
+msgstr ""
+
+#: modules/users/forms/edit_profile.py:20 modules/users/forms/register.py:31
+#: templates/profile.html:15
+msgid "Phone"
+msgstr ""
+
+#: modules/users/forms/edit_profile.py:21 modules/users/forms/register.py:34
+msgid "NTRP Rating"
+msgstr ""
+
+#: modules/users/forms/edit_profile.py:23 modules/users/forms/register.py:36
+msgid "Sign Up"
+msgstr ""
+
+#: modules/users/forms/edit_profile.py:47 modules/users/forms/register.py:48
+msgid "Invalid phone number"
+msgstr ""
+
+#: modules/users/forms/edit_profile.py:54 modules/users/forms/register.py:52
+msgid "This phone number is taken"
+msgstr ""
+
+#: modules/users/forms/edit_profile.py:64 modules/users/forms/register.py:70
+msgid "Account with this email already exists"
+msgstr ""
+
+#: modules/users/forms/login.py:12 modules/users/forms/login.py:15
+#: modules/users/forms/register.py:29 templates/login.html:4
+#: templates/login.html:28
 msgid "Login"
-msgstr "Логин"
+msgstr ""
 
-#: templates/login.html:13
+#: modules/users/forms/login.py:13 modules/users/forms/register.py:32
+msgid "Password"
+msgstr ""
+
+#: modules/users/forms/login.py:14
+msgid "Remember me"
+msgstr ""
+
+#: modules/users/forms/register.py:33
+msgid "Confirm password"
+msgstr ""
+
+#: modules/users/forms/register.py:58
+msgid "Login can only contain letters, numbers, underscores and dashes"
+msgstr ""
+
+#: modules/users/forms/register.py:61
+msgid "This username is already taken"
+msgstr ""
+
+#: modules/users/forms/register.py:76
+msgid "Passwords doesn't match!"
+msgstr ""
+
+#: modules/users/models/skill.py:19
+msgid "NTRP 2.0 - New player"
+msgstr ""
+
+#: modules/users/models/skill.py:20
+msgid ""
+"Has no or limited tennis experience and is still working primarily on "
+"getting the ball into play."
+msgstr ""
+
+#: modules/users/models/skill.py:25
+msgid "NTRP 2.5 - Beginner"
+msgstr ""
+
+#: modules/users/models/skill.py:26
+msgid ""
+"Learning to judge where the ball is going. Can sustain a short rally of "
+"slow pace with other players of the same ability."
+msgstr ""
+
+#: modules/users/models/skill.py:31
+msgid "NTRP 3.0 - Beginner to intermediate"
+msgstr ""
+
+#: modules/users/models/skill.py:32
+msgid ""
+"Fairly consistent when hitting medium-paced shots, but is not comfortable"
+" with all strokes and lacks execution when trying for directional "
+"control, depth or power."
+msgstr ""
+
+#: modules/users/models/skill.py:37
+msgid "NTRP 3.5 - Intermediate player"
+msgstr ""
+
+#: modules/users/models/skill.py:38
+msgid ""
+"Has good stroke dependability with directional control on shots, but "
+"still lacks depth and variety. Starting to exhibit more aggressive net "
+"play and has improved court coverage."
+msgstr ""
+
+#: modules/users/models/skill.py:44
+msgid "NTRP 4.0 - Intermediate to advanced player"
+msgstr ""
+
+#: modules/users/models/skill.py:45
+msgid ""
+"Dependable strokes, including directional intent, on both forehand and "
+"backhand sides on moderate shots, plus the ability to use lobs, "
+"overheads, approach shots and volleys with some success."
+msgstr ""
+
+#: modules/users/models/skill.py:51
+msgid "NTRP 4.5 - Advanced player"
+msgstr ""
+
+#: modules/users/models/skill.py:52
+msgid ""
+"This player has begun to master the use of power and spins and is "
+"beginning to handle pace, has sound footwork, can control depth of shots,"
+" and is beginning to vary tactics according to opponents. This player can"
+" hit first serves with power and accuracy and place the second serve and "
+"is able to rush the net successfully."
+msgstr ""
+
+#: modules/users/models/skill.py:59
+msgid "NTRP 5.0 - Elite player"
+msgstr ""
+
+#: modules/users/models/skill.py:60
+msgid ""
+"This player has good shot anticipation and frequently has an outstanding "
+"shot or attribute around which a game may be structured. This player can "
+"regularly hit winners or force errors off of short balls, can put away "
+"volleys, can successfully execute lobs, drop shots, half volleys and "
+"overhead smashes, and has good depth and spin on most second serves."
+msgstr ""
+
+#: modules/users/views/login.py:35
+msgid "Incorrect login!"
+msgstr ""
+
+#: templates/400.html:4 templates/500.html:4
+msgid "Error"
+msgstr ""
+
+#: templates/400.html:8
+msgid "Bad request!"
+msgstr ""
+
+#: templates/403.html:4
+msgid "Forbidden"
+msgstr ""
+
+#: templates/403.html:8
+msgid "You can't access this!"
+msgstr ""
+
+#: templates/404.html:4
+msgid "Not found"
+msgstr ""
+
+#: templates/404.html:8
+msgid "404 Not found!"
+msgstr ""
+
+#: templates/500.html:8
+msgid "Something went wrong!"
+msgstr ""
+
+#: templates/create_game.html:4 templates/create_game.html:12
+#: templates/create_game.html:21
+msgid "Create game"
+msgstr ""
+
+#: templates/create_game.html:27 templates/register.html:40
+msgid "Already have an account?"
+msgstr ""
+
+#: templates/create_game.html:27 templates/login.html:13
+#: templates/register.html:40
 msgid "Sign in"
-msgstr "Войти"
+msgstr ""
+
+#: templates/edit_profile.html:13 templates/profile.html:31
+msgid "Edit profile"
+msgstr ""
+
+#: templates/edit_profile.html:22 templates/register.html:28
+msgid "More info on NTRP rating"
+msgstr ""
+
+#: templates/edit_profile.html:22 templates/register.html:28
+msgid "here"
+msgstr ""
+
+#: templates/edit_profile.html:28
+msgid "Save"
+msgstr ""
+
+#: templates/find_game.html:4
+msgid "Find game"
+msgstr ""
+
+#: templates/find_game.html:9 templates/main.html:33
+msgid "Find match"
+msgstr ""
+
+#: templates/find_game.html:11 templates/find_game.html:17
+msgid "Create match"
+msgstr ""
+
+#: templates/find_game.html:16
+msgid "No matches here yet!"
+msgstr ""
+
+#: templates/game.html:13 templates/game.html:85
+msgid "Choose winner"
+msgstr ""
+
+#: templates/game.html:17 templates/game.html:22
+msgid "Choose"
+msgstr ""
+
+#: templates/game.html:24
+msgid "Close"
+msgstr ""
+
+#: templates/game.html:36
+msgid "Join"
+msgstr ""
+
+#: templates/game.html:52 templates/game.html:74 templates/profile.html:21
+msgid "NTRP rating"
+msgstr ""
+
+#: templates/game.html:54 templates/game.html:76 templates/profile.html:25
+msgid "Win rate"
+msgstr ""
+
+#: templates/game.html:82
+msgid "Time"
+msgstr ""
 
 #: templates/login.html:34
 msgid "Don't have an account?"
-msgstr "Нет аккаунта?"
+msgstr ""
 
-#: templates/login.html:34
+#: templates/login.html:34 templates/register.html:34
 msgid "Sign up"
-msgstr "Зарегистрироваться"
+msgstr ""
 
-#: templates/main.html:21
+#: templates/main.html:23
 msgid "Tennis"
 msgstr ""
 
-#: templates/main.html:32
-msgid "Sport"
+#: templates/main.html:39 templates/my_games.html:4 templates/my_games.html:8
+msgid "My matches"
 msgstr ""
 
-#: templates/main.html:39
-msgid "About"
-msgstr "О сайте"
-
-#: venv/lib/python3.10/site-packages/click/_termui_impl.py:496
-msgid "{editor}: Editing failed"
+#: templates/main.html:43
+msgid "Profile"
 msgstr ""
 
-#: venv/lib/python3.10/site-packages/click/_termui_impl.py:500
-msgid "{editor}: Editing failed: {e}"
+#: templates/main.html:45
+msgid "Log out"
 msgstr ""
 
-#: venv/lib/python3.10/site-packages/click/core.py:1097
-msgid "Aborted!"
+#: templates/main.html:47
+msgid "Log in"
 msgstr ""
 
-#: venv/lib/python3.10/site-packages/click/core.py:1282
-#: venv/lib/python3.10/site-packages/click/decorators.py:495
-msgid "Show this message and exit."
+#: templates/my_games.html:10
+msgid "Pending matches"
 msgstr ""
 
-#: venv/lib/python3.10/site-packages/click/core.py:1313
-#: venv/lib/python3.10/site-packages/click/core.py:1339
-msgid "(Deprecated) {text}"
+#: templates/my_games.html:17
+msgid "Matches in progress"
 msgstr ""
 
-#: venv/lib/python3.10/site-packages/click/core.py:1357
-msgid "Options"
+#: templates/my_games.html:24
+msgid "Completed matches"
 msgstr ""
 
-#: venv/lib/python3.10/site-packages/click/core.py:1385
-msgid "Got unexpected extra argument ({args})"
-msgid_plural "Got unexpected extra arguments ({args})"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
-#: venv/lib/python3.10/site-packages/click/core.py:1398
-msgid "DeprecationWarning: The command {name!r} is deprecated."
+#: templates/profile.html:23
+msgid "Wins"
 msgstr ""
 
-#: venv/lib/python3.10/site-packages/click/core.py:1605
-msgid "Commands"
+#: templates/profile.html:24
+msgid "Losses"
 msgstr ""
 
-#: venv/lib/python3.10/site-packages/click/core.py:1637
-msgid "Missing command."
+#: templates/register.html:4
+msgid "Registration"
 msgstr ""
 
-#: venv/lib/python3.10/site-packages/click/core.py:1715
-msgid "No such command {name!r}."
+#: templates/register.html:16
+msgid "Join now"
 msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/core.py:2271
-msgid "Value must be an iterable."
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/core.py:2293
-msgid "Takes {nargs} values but 1 was given."
-msgid_plural "Takes {nargs} values but {len} were given."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
-#: venv/lib/python3.10/site-packages/click/core.py:2734
-msgid "env var: {var}"
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/core.py:2764
-msgid "(dynamic)"
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/core.py:2777
-msgid "default: {default}"
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/core.py:2790
-msgid "required"
-msgstr "необходимо заполнить"
-
-#: venv/lib/python3.10/site-packages/click/decorators.py:400
-#, python-format
-msgid "%(prog)s, version %(version)s"
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/decorators.py:464
-msgid "Show the version and exit."
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/exceptions.py:43
-#: venv/lib/python3.10/site-packages/click/exceptions.py:79
-msgid "Error: {message}"
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/exceptions.py:71
-msgid "Try '{command} {option}' for help."
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/exceptions.py:120
-msgid "Invalid value: {message}"
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/exceptions.py:122
-msgid "Invalid value for {param_hint}: {message}"
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/exceptions.py:178
-msgid "Missing argument"
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/exceptions.py:180
-msgid "Missing option"
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/exceptions.py:182
-msgid "Missing parameter"
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/exceptions.py:184
-msgid "Missing {param_type}"
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/exceptions.py:191
-msgid "Missing parameter: {param_name}"
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/exceptions.py:211
-msgid "No such option: {name}"
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/exceptions.py:225
-msgid "Did you mean {possibility}?"
-msgid_plural "(Possible options: {possibilities})"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
-#: venv/lib/python3.10/site-packages/click/exceptions.py:261
-msgid "unknown error"
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/exceptions.py:268
-msgid "Could not open file {filename!r}: {message}"
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/parser.py:231
-msgid "Argument {name!r} takes {nargs} values."
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/parser.py:413
-msgid "Option {name!r} does not take a value."
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/parser.py:473
-msgid "Option {name!r} requires an argument."
-msgid_plural "Option {name!r} requires {nargs} arguments."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
-#: venv/lib/python3.10/site-packages/click/shell_completion.py:315
-msgid "Shell completion is not supported for Bash versions older than 4.4."
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/shell_completion.py:322
-msgid "Couldn't detect Bash version, shell completion is not supported."
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/termui.py:160
-msgid "Repeat for confirmation"
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/termui.py:176
-msgid "Error: The value you entered was invalid."
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/termui.py:178
-msgid "Error: {e.message}"
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/termui.py:189
-msgid "Error: The two entered values do not match."
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/termui.py:245
-msgid "Error: invalid input"
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/termui.py:776
-msgid "Press any key to continue..."
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/types.py:265
-msgid ""
-"Choose from:\n"
-"\t{choices}"
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/types.py:299
-msgid "{value!r} is not {choice}."
-msgid_plural "{value!r} is not one of {choices}."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
-#: venv/lib/python3.10/site-packages/click/types.py:389
-msgid "{value!r} does not match the format {format}."
-msgid_plural "{value!r} does not match the formats {formats}."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
-#: venv/lib/python3.10/site-packages/click/types.py:409
-msgid "{value!r} is not a valid {number_type}."
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/types.py:465
-msgid "{value} is not in the range {range}."
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/types.py:606
-msgid "{value!r} is not a valid boolean."
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/types.py:630
-msgid "{value!r} is not a valid UUID."
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/types.py:811
-msgid "file"
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/types.py:813
-msgid "directory"
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/types.py:815
-msgid "path"
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/types.py:861
-msgid "{name} {filename!r} does not exist."
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/types.py:870
-msgid "{name} {filename!r} is a file."
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/types.py:878
-msgid "{name} '{filename}' is a directory."
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/types.py:887
-msgid "{name} {filename!r} is not readable."
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/types.py:896
-msgid "{name} {filename!r} is not writable."
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/types.py:905
-msgid "{name} {filename!r} is not executable."
-msgstr ""
-
-#: venv/lib/python3.10/site-packages/click/types.py:971
-msgid "{len_type} values are required, but {len_value} was given."
-msgid_plural "{len_type} values are required, but {len_value} were given."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
 
 #: venv/lib/python3.10/site-packages/flask_wtf/file.py:35
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:294
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:322
 msgid "This field is required."
-msgstr "Необходимо заполнить."
+msgstr ""
 
 #: venv/lib/python3.10/site-packages/flask_wtf/file.py:69
 msgid "File does not have an approved extension: {extensions}"
-msgstr "Неправильный формат файла, можно загружать только {extensions}"
+msgstr ""
 
 #: venv/lib/python3.10/site-packages/flask_wtf/file.py:77
 msgid "File does not have an approved extension."
-msgstr "Неправильный формат файла."
+msgstr ""
 
 #: venv/lib/python3.10/site-packages/flask_wtf/file.py:112
 msgid "File must be between {min_size} and {max_size} bytes."
-msgstr "Размер файла должен быть между {min_size} и {max_size} байт"
+msgstr ""
 
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:87
 #, python-format
 msgid "Invalid field name '%s'."
-msgstr "Неверное имя файла '%s'."
+msgstr ""
 
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:100
 #, python-format
 msgid "Field must be equal to %(other_name)s."
-msgstr "Поле должно совпадать с %(other_name)s."
+msgstr ""
 
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:146
 #, python-format
