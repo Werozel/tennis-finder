@@ -41,11 +41,11 @@
                     <div class="user-info-div">
                         {% if player_1.id == game.winner_id %}
                             <img class="account-img rounded-circle winner-border"
-                                 src="{{ url_for('static', filename='profile_pics/default.jpg') }}"
+                                 src="{{ url_for('static', filename='profile_pics/' + player_1.image_file_path) }}"
                                  alt="profile image"/>
                         {% else %}
                             <img class="account-img rounded-circle"
-                                 src="{{ url_for('static', filename='profile_pics/default.jpg') }}"
+                                 src="{{ url_for('static', filename='profile_pics/' + player_1.image_file_path) }}"
                                  alt="profile image"/>
                         {% endif %}
                         <p class="text-secondary m-bottom-4">{{ player_1.full_name }}</p>
@@ -54,17 +54,21 @@
                             {{ _("Win rate") }}: {{ player_1.wins / player_1.losses if player_1.losses > 0 else 0 }}
                         </p>
                     </div>
-                    <img class="ml-4 mr-4" src="{{ url_for('static', filename='buttons/close-24px.svg') }}" alt="X"/>
+                    <img class="ml-4 mr-4" style="margin-bottom: 100px" src="{{ url_for('static', filename='buttons/close-24px.svg') }}" alt="X"/>
                     <div class="user-info-div">
-                        {% if player_2.id == game.winner_id %}
-                            <img class="account-img rounded-circle winner-border"
-                                 src="{{ url_for('static', filename='profile_pics/default.jpg') }}"
-                                 alt="profile image"/>
-                        {% else %}
-                            <img class="account-img rounded-circle"
-                                 src="{{ url_for('static', filename='profile_pics/default.jpg') }}"
-                                 alt="profile image"/>
-                        {% endif %}
+                            {% if not player_2 %}
+                                <img class="account-img rounded-circle"
+                                     src="{{ url_for('static', filename='profile_pics/default.jpg') }}"
+                                     alt="profile image"/>
+                            {% elif player_2.id == game.winner_id %}
+                                <img class="account-img rounded-circle winner-border"
+                                     src="{{ url_for('static', filename='profile_pics/' + player_2.image_file_path) }}"
+                                     alt="profile image"/>
+                            {% else %}
+                                <img class="account-img rounded-circle"
+                                     src="{{ url_for('static', filename='profile_pics/' + player_2.image_file_path) }}"
+                                     alt="profile image"/>
+                            {% endif %}
                         {% if player_2 %}
                             <p class="text-secondary m-bottom-4">{{ player_2.full_name }}</p>
                             <p class="text-secondary m-bottom-4">{{ _("NTRP rating") }}: {{ player_2.skill }}</p>
