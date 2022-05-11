@@ -24,16 +24,16 @@ skill_choices = list(
 class RegistrationForm(FlaskForm):
     """This is the registration form."""
 
-    full_name = StringField(gettext('Full name'), validators=[DataRequired(), Length(min=3, max=100)])
-    picture = FileField(gettext('Profile image'), validators=[FileAllowed(['jpg', 'png', 'jpeg']), FileSize(3_145_728)])
-    login = StringField(gettext('Login'), validators=[DataRequired(), Length(min=3, max=50)])
-    email = StringField(gettext('Email'), validators=[Optional(strip_whitespace=True), Email()])
-    phone = StringField(gettext('Phone'), validators=[Optional(strip_whitespace=True), Length(max=12)])
-    password = PasswordField(gettext('Password'), validators=[DataRequired()])
-    confirm_password = PasswordField(gettext('Confirm password'), validators=[DataRequired()])
-    skill = SelectField(gettext('NTRP Rating'), choices=skill_choices)
+    full_name = StringField('Full name', validators=[DataRequired(), Length(min=3, max=100)])
+    picture = FileField('Profile image', validators=[FileAllowed(['jpg', 'png', 'jpeg']), FileSize(3_145_728)])
+    login = StringField('Login', validators=[DataRequired(), Length(min=3, max=50)])
+    email = StringField('Email', validators=[Optional(strip_whitespace=True), Email()])
+    phone = StringField('Phone', validators=[Optional(strip_whitespace=True), Length(max=12)])
+    password = PasswordField('Password', validators=[DataRequired()])
+    confirm_password = PasswordField('Confirm password', validators=[DataRequired()])
+    skill = SelectField('NTRP Rating', choices=skill_choices)
 
-    submit = SubmitField(gettext('Sign Up'))
+    submit = SubmitField('Sign Up')
 
     @staticmethod
     def validate_phone(_, phone):

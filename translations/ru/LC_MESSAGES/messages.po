@@ -268,7 +268,7 @@ msgstr "здесь"
 
 #: templates/edit_profile.html:28
 msgid "Save"
-msgstr "Сохранять"
+msgstr "Сохранить"
 
 #: templates/find_game.html:4
 msgid "Find game"
@@ -305,6 +305,9 @@ msgstr "Присоединиться"
 #: templates/game.html:52 templates/game.html:74 templates/profile.html:21
 msgid "NTRP rating"
 msgstr "Рейтинг NTRP"
+
+msgid "Opponent"
+msgstr "Оппонент"
 
 #: templates/game.html:54 templates/game.html:76 templates/profile.html:25
 msgid "Win rate"
@@ -396,7 +399,7 @@ msgstr "Неверное имя поля '%s'."
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:100
 #, python-format
 msgid "Field must be equal to %(other_name)s."
-msgstr "Поле должно быть равным %(другое_name) s."
+msgstr "Поле должно быть равным %(other_name) s."
 
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:146
 #, python-format

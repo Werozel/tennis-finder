@@ -9,7 +9,7 @@ from wtforms.validators import DataRequired, Length
 class LoginForm(FlaskForm):
     """This is the login form."""
 
-    login = StringField(gettext('Login'), validators=[DataRequired(), Length(min=3, max=30)])
-    password = PasswordField(gettext('Password'), validators=[DataRequired()])
-    remember = BooleanField(gettext('Remember me'))
-    submit = SubmitField(gettext('Login'))
+    login = StringField('Login', validators=[DataRequired(), Length(min=3, max=30)])
+    password = PasswordField('Password', validators=[DataRequired()])
+    remember = BooleanField('Remember me')
+    submit = SubmitField('Login')
