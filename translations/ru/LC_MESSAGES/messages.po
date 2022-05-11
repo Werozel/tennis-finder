@@ -21,115 +21,119 @@ msgstr ""
 
 #: modules/core/app.py:31
 msgid "Please log in to view this page."
-msgstr ""
+msgstr "Пожалуйста, войдите в систему, чтобы просмотреть эту страницу."
 
 #: modules/games/forms/create_game.py:12
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 #: modules/games/forms/create_game.py:13
 msgid "Game date"
-msgstr ""
+msgstr "Время игры"
 
 #: modules/games/forms/create_game.py:15
 msgid "Create"
-msgstr ""
+msgstr "Создать"
 
 #: modules/games/routes/game_routes.py:28
 msgid "You already joined this match"
-msgstr ""
+msgstr "Вы уже присоединились к этому матчу"
 
 #: modules/users/forms/edit_profile.py:17 modules/users/forms/register.py:27
 msgid "Full name"
-msgstr ""
+msgstr "Имя"
 
 #: modules/users/forms/edit_profile.py:18 modules/users/forms/register.py:28
 msgid "Profile image"
-msgstr ""
+msgstr "Изображение профиля"
 
 #: modules/users/forms/edit_profile.py:19 modules/users/forms/register.py:30
 #: templates/profile.html:18
 msgid "Email"
-msgstr ""
+msgstr "Эл. адрес"
 
 #: modules/users/forms/edit_profile.py:20 modules/users/forms/register.py:31
 #: templates/profile.html:15
 msgid "Phone"
-msgstr ""
+msgstr "Телефон"
 
 #: modules/users/forms/edit_profile.py:21 modules/users/forms/register.py:34
 msgid "NTRP Rating"
-msgstr ""
+msgstr "NTRP Rating"
 
 #: modules/users/forms/edit_profile.py:23 modules/users/forms/register.py:36
 msgid "Sign Up"
-msgstr ""
+msgstr "Зарегистрироваться"
 
 #: modules/users/forms/edit_profile.py:47 modules/users/forms/register.py:48
 msgid "Invalid phone number"
-msgstr ""
+msgstr "Неправильный номер телефона"
 
 #: modules/users/forms/edit_profile.py:54 modules/users/forms/register.py:52
 msgid "This phone number is taken"
-msgstr ""
+msgstr "Этот номер телефона уже зарегистрирован"
 
 #: modules/users/forms/edit_profile.py:64 modules/users/forms/register.py:70
 msgid "Account with this email already exists"
-msgstr ""
+msgstr "Учетная запись с этим адресом уже существует"
 
 #: modules/users/forms/login.py:12 modules/users/forms/login.py:15
 #: modules/users/forms/register.py:29 templates/login.html:4
 #: templates/login.html:28
 msgid "Login"
-msgstr ""
+msgstr "Войти"
 
 #: modules/users/forms/login.py:13 modules/users/forms/register.py:32
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 #: modules/users/forms/login.py:14
 msgid "Remember me"
-msgstr ""
+msgstr "Запомнить меня"
 
 #: modules/users/forms/register.py:33
 msgid "Confirm password"
-msgstr ""
+msgstr "Подтвердить Пароль"
 
 #: modules/users/forms/register.py:58
 msgid "Login can only contain letters, numbers, underscores and dashes"
-msgstr ""
+msgstr "Логин может содержать только буквы, числа, подчеркивание и тире"
 
 #: modules/users/forms/register.py:61
 msgid "This username is already taken"
-msgstr ""
+msgstr "Это имя пользователя уже зарегистрировано"
 
 #: modules/users/forms/register.py:76
 msgid "Passwords doesn't match!"
-msgstr ""
+msgstr "Пароли не совпадают!"
 
 #: modules/users/models/skill.py:19
 msgid "NTRP 2.0 - New player"
-msgstr ""
+msgstr "NTRP 2.0 - новый игрок"
 
 #: modules/users/models/skill.py:20
 msgid ""
 "Has no or limited tennis experience and is still working primarily on "
 "getting the ball into play."
 msgstr ""
+"Не имеет или имеет ограниченный опыт игры в теннис и по-прежнему "
+"работает в основном над удержанием мяча в игре."
 
 #: modules/users/models/skill.py:25
 msgid "NTRP 2.5 - Beginner"
-msgstr ""
+msgstr "NTRP 2.5 - Новичок"
 
 #: modules/users/models/skill.py:26
 msgid ""
 "Learning to judge where the ball is going. Can sustain a short rally of "
 "slow pace with other players of the same ability."
 msgstr ""
+"Учится определять, куда летит мяч. Может выдержать короткий розыгрыш "
+"в медленном темпе с другими игроками своего уровня."
 
 #: modules/users/models/skill.py:31
 msgid "NTRP 3.0 - Beginner to intermediate"
-msgstr ""
+msgstr "NTRP 3.0 - Между новичком и средним уровнем"
 
 #: modules/users/models/skill.py:32
 msgid ""
@@ -137,10 +141,12 @@ msgid ""
 " with all strokes and lacks execution when trying for directional "
 "control, depth or power."
 msgstr ""
+"Достаточно стабильный при выполнении ударов в среднем темпе, но не стабилен в остальных ударах. "
+"Ему не хватает мастерства для контроля направления, глубины или мощности удара."
 
 #: modules/users/models/skill.py:37
 msgid "NTRP 3.5 - Intermediate player"
-msgstr ""
+msgstr "NTRP 3.5 - Игрок среднего игрок"
 
 #: modules/users/models/skill.py:38
 msgid ""
@@ -148,10 +154,13 @@ msgid ""
 "still lacks depth and variety. Starting to exhibit more aggressive net "
 "play and has improved court coverage."
 msgstr ""
+"Имеет хорошую стабильность ударов с контролем направления, но ему все еще "
+"не хватает мастерства для контроля глубины и разнообразия ударов. Начинает демонстрировать более агрессивную "
+"игру у сетки и неплохо передвигается по корту."
 
 #: modules/users/models/skill.py:44
 msgid "NTRP 4.0 - Intermediate to advanced player"
-msgstr ""
+msgstr "NTRP 4.0 - От среднего до продвинотого уровня"
 
 #: modules/users/models/skill.py:45
 msgid ""
@@ -159,10 +168,13 @@ msgid ""
 "backhand sides on moderate shots, plus the ability to use lobs, "
 "overheads, approach shots and volleys with some success."
 msgstr ""
+"Надежные удары с контролем направления мяча, как справа, так и слева "
+"при умеренных ударах, а также возможность с некоторым успехом использовать "
+"обводящие, удары над головой, атакующие удары и удары с лета."
 
 #: modules/users/models/skill.py:51
 msgid "NTRP 4.5 - Advanced player"
-msgstr ""
+msgstr "NTRP 4.5 - Продвинутый игрок"
 
 #: modules/users/models/skill.py:52
 msgid ""
@@ -172,10 +184,15 @@ msgid ""
 " hit first serves with power and accuracy and place the second serve and "
 "is able to rush the net successfully."
 msgstr ""
+"Этот игрок начал успешно контрллировать силу и вращение ударов и может "
+"управлять темпом игры, имеет хорошую работу ног, может контролировать глубину ударов "
+"и начинает варьировать тактику в зависимости от противников. Этот игрок может "
+"подавать первую подачу с силой и точностью, выполнять вторую подачу и может "
+"успешно выходить к сетке."
 
 #: modules/users/models/skill.py:59
 msgid "NTRP 5.0 - Elite player"
-msgstr ""
+msgstr "NTRP 5.0 - Элитный игрок"
 
 #: modules/users/models/skill.py:60
 msgid ""
@@ -185,338 +202,343 @@ msgid ""
 "volleys, can successfully execute lobs, drop shots, half volleys and "
 "overhead smashes, and has good depth and spin on most second serves."
 msgstr ""
+"Этот игрок хорошо оценивает направление мяча и часто обладает выдающимися навыками "
+"вокруг которых может быть построена игра. Этот игрок может "
+"регулярно пробивать навылет или провоцировать ошибки при коротких розыгрышах, "
+"может отражать удары с лета, может успешно выполнять навесы, укороченные, "
+"а также имеет хорошую глубину и вращение на большинстве вторых подач."
 
 #: modules/users/views/login.py:35
 msgid "Incorrect login!"
-msgstr ""
+msgstr "Неверный логин!"
 
 #: templates/400.html:4 templates/500.html:4
 msgid "Error"
-msgstr ""
+msgstr "Ошибка"
 
 #: templates/400.html:8
 msgid "Bad request!"
-msgstr ""
+msgstr "Неверный запрос!"
 
 #: templates/403.html:4
 msgid "Forbidden"
-msgstr ""
+msgstr "Нет доступа"
 
 #: templates/403.html:8
 msgid "You can't access this!"
-msgstr ""
+msgstr "Нет доступа"
 
 #: templates/404.html:4
 msgid "Not found"
-msgstr ""
+msgstr "Не найдено"
 
 #: templates/404.html:8
 msgid "404 Not found!"
-msgstr ""
+msgstr "404 Не найдено!"
 
 #: templates/500.html:8
 msgid "Something went wrong!"
-msgstr ""
+msgstr "Что-то пошло не так!"
 
 #: templates/create_game.html:4 templates/create_game.html:12
 #: templates/create_game.html:21
 msgid "Create game"
-msgstr ""
+msgstr "Создать игру"
 
 #: templates/create_game.html:27 templates/register.html:40
 msgid "Already have an account?"
-msgstr ""
+msgstr "Уже есть учетная запись?"
 
 #: templates/create_game.html:27 templates/login.html:13
 #: templates/register.html:40
 msgid "Sign in"
-msgstr ""
+msgstr "Войти"
 
 #: templates/edit_profile.html:13 templates/profile.html:31
 msgid "Edit profile"
-msgstr ""
+msgstr "Редактировать профиль"
 
 #: templates/edit_profile.html:22 templates/register.html:28
 msgid "More info on NTRP rating"
-msgstr ""
+msgstr "Больше информации о рейтинге NTRP"
 
 #: templates/edit_profile.html:22 templates/register.html:28
 msgid "here"
-msgstr ""
+msgstr "здесь"
 
 #: templates/edit_profile.html:28
 msgid "Save"
-msgstr ""
+msgstr "Сохранять"
 
 #: templates/find_game.html:4
 msgid "Find game"
-msgstr ""
+msgstr "Найти игру"
 
 #: templates/find_game.html:9 templates/main.html:33
 msgid "Find match"
-msgstr ""
+msgstr "Найти матч"
 
 #: templates/find_game.html:11 templates/find_game.html:17
 msgid "Create match"
-msgstr ""
+msgstr "Создать матч"
 
 #: templates/find_game.html:16
 msgid "No matches here yet!"
-msgstr ""
+msgstr "Еще нет матчей!"
 
 #: templates/game.html:13 templates/game.html:85
 msgid "Choose winner"
-msgstr ""
+msgstr "Выберите победителя"
 
 #: templates/game.html:17 templates/game.html:22
 msgid "Choose"
-msgstr ""
+msgstr "Выбрать"
 
 #: templates/game.html:24
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 #: templates/game.html:36
 msgid "Join"
-msgstr ""
+msgstr "Присоединиться"
 
 #: templates/game.html:52 templates/game.html:74 templates/profile.html:21
 msgid "NTRP rating"
-msgstr ""
+msgstr "Рейтинг NTRP"
 
 #: templates/game.html:54 templates/game.html:76 templates/profile.html:25
 msgid "Win rate"
-msgstr ""
+msgstr "Процент побед"
 
 #: templates/game.html:82
 msgid "Time"
-msgstr ""
+msgstr "Время"
 
 #: templates/login.html:34
 msgid "Don't have an account?"
-msgstr ""
+msgstr "Нет учетной записи?"
 
 #: templates/login.html:34 templates/register.html:34
 msgid "Sign up"
-msgstr ""
+msgstr "Зарегистрироваться"
 
 #: templates/main.html:23
 msgid "Tennis"
-msgstr ""
+msgstr "Теннис"
 
 #: templates/main.html:39 templates/my_games.html:4 templates/my_games.html:8
 msgid "My matches"
-msgstr ""
+msgstr "Мои матчи"
 
 #: templates/main.html:43
 msgid "Profile"
-msgstr ""
+msgstr "Профиль"
 
 #: templates/main.html:45
 msgid "Log out"
-msgstr ""
+msgstr "Выйти"
 
 #: templates/main.html:47
 msgid "Log in"
-msgstr ""
+msgstr "Авторизоваться"
 
 #: templates/my_games.html:10
 msgid "Pending matches"
-msgstr ""
+msgstr "Ожидают соперника"
 
 #: templates/my_games.html:17
 msgid "Matches in progress"
-msgstr ""
+msgstr "Идущие матчи"
 
 #: templates/my_games.html:24
 msgid "Completed matches"
-msgstr ""
+msgstr "Завершенные матчи"
 
 #: templates/profile.html:23
 msgid "Wins"
-msgstr ""
+msgstr "Победы"
 
 #: templates/profile.html:24
 msgid "Losses"
-msgstr ""
+msgstr "Поражения"
 
 #: templates/register.html:4
 msgid "Registration"
-msgstr ""
+msgstr "Регистрация"
 
 #: templates/register.html:16
 msgid "Join now"
-msgstr ""
+msgstr "Зарегистрироваться"
 
 #: venv/lib/python3.10/site-packages/flask_wtf/file.py:35
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:294
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:322
 msgid "This field is required."
-msgstr ""
+msgstr "Это поле обязательно к заполнению."
 
 #: venv/lib/python3.10/site-packages/flask_wtf/file.py:69
 msgid "File does not have an approved extension: {extensions}"
-msgstr ""
+msgstr "Неправильный формат файла, принимаемые файлы: {extensions}"
 
 #: venv/lib/python3.10/site-packages/flask_wtf/file.py:77
 msgid "File does not have an approved extension."
-msgstr ""
+msgstr "Неправильный формат файла"
 
 #: venv/lib/python3.10/site-packages/flask_wtf/file.py:112
 msgid "File must be between {min_size} and {max_size} bytes."
-msgstr ""
+msgstr "Файл должен быть между {min_size} и {max_size} байтов."
 
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:87
 #, python-format
 msgid "Invalid field name '%s'."
-msgstr ""
+msgstr "Неверное имя поля '%s'."
 
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:100
 #, python-format
 msgid "Field must be equal to %(other_name)s."
-msgstr ""
+msgstr "Поле должно быть равным %(другое_name) s."
 
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:146
 #, python-format
 msgid "Field must be at least %(min)d character long."
 msgid_plural "Field must be at least %(min)d characters long."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Поле должно быть длиннее %(min)d символа"
+msgstr[1] "Поле должно быть длиннее %(min)d символов"
+msgstr[2] "Поле должно быть длиннее %(min)d символов"
 
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:152
 #, python-format
 msgid "Field cannot be longer than %(max)d character."
 msgid_plural "Field cannot be longer than %(max)d characters."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Поле не может быть длиннее %(max)d символа"
+msgstr[1] "Поле не может быть длиннее %(max)d символов"
+msgstr[2] "Поле не может быть длиннее %(max)d символов"
 
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:158
 #, python-format
 msgid "Field must be exactly %(max)d character long."
 msgid_plural "Field must be exactly %(max)d characters long."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Поле должно быть длинной %(max)d символа"
+msgstr[1] "Поле должно быть длинной %(max)d символов"
+msgstr[2] "Поле должно быть длинной %(max)d символов"
 
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:164
 #, python-format
 msgid "Field must be between %(min)d and %(max)d characters long."
-msgstr ""
+msgstr "Поле должно быть длины между %(min)d и %(max)d символами."
 
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:217
 #, python-format
 msgid "Number must be at least %(min)s."
-msgstr ""
+msgstr "Число должно быть не менее %(min)s."
 
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:220
 #, python-format
 msgid "Number must be at most %(max)s."
-msgstr ""
+msgstr "Число не должно превышать %(max)s."
 
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:223
 #, python-format
 msgid "Number must be between %(min)s and %(max)s."
-msgstr ""
+msgstr "Количество должно быть между %(min)s и %(max)s."
 
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:357
 msgid "Invalid input."
-msgstr ""
+msgstr "Неверный ввод."
 
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:416
 msgid "Invalid email address."
-msgstr ""
+msgstr "Неверный адрес электронной почты."
 
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:454
 msgid "Invalid IP address."
-msgstr ""
+msgstr "Неверный IP-адрес."
 
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:497
 msgid "Invalid Mac address."
-msgstr ""
+msgstr "Неверный MAC-адрес."
 
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:532
 msgid "Invalid URL."
-msgstr ""
+msgstr "Неверная ссылка."
 
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:553
 msgid "Invalid UUID."
-msgstr ""
+msgstr "Недействительный uuid."
 
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:586
 #, python-format
 msgid "Invalid value, must be one of: %(values)s."
-msgstr ""
+msgstr "Неверное значение, должно быть одним из: %(values)s."
 
 #: venv/lib/python3.10/site-packages/wtforms/validators.py:621
 #, python-format
 msgid "Invalid value, can't be any of: %(values)s."
-msgstr ""
+msgstr "Неверное значение, не может быть любым из: %(values)s."
 
 #: venv/lib/python3.10/site-packages/wtforms/csrf/core.py:96
 msgid "Invalid CSRF Token."
-msgstr ""
+msgstr "Неверный токен CSRF."
 
 #: venv/lib/python3.10/site-packages/wtforms/csrf/session.py:63
 msgid "CSRF token missing."
-msgstr ""
+msgstr "Токен CSRF отсутствует."
 
 #: venv/lib/python3.10/site-packages/wtforms/csrf/session.py:71
 msgid "CSRF failed."
-msgstr ""
+msgstr "Неправильный CSRF."
 
 #: venv/lib/python3.10/site-packages/wtforms/csrf/session.py:76
 msgid "CSRF token expired."
-msgstr ""
+msgstr "Закончился срок действия токена CSRF."
 
 #: venv/lib/python3.10/site-packages/wtforms/fields/choices.py:132
 msgid "Invalid Choice: could not coerce."
-msgstr ""
+msgstr "Неверный выбор."
 
 #: venv/lib/python3.10/site-packages/wtforms/fields/choices.py:136
 #: venv/lib/python3.10/site-packages/wtforms/fields/choices.py:188
 msgid "Choices cannot be None."
-msgstr ""
+msgstr "Выбор не может быть пустым"
 
 #: venv/lib/python3.10/site-packages/wtforms/fields/choices.py:145
 msgid "Not a valid choice."
-msgstr ""
+msgstr "Неправильное значение выбора."
 
 #: venv/lib/python3.10/site-packages/wtforms/fields/choices.py:181
 msgid "Invalid choice(s): one or more data inputs could not be coerced."
-msgstr ""
+msgstr "Неверный выбор (s): один или несколько входов данных неправильны."
 
 #: venv/lib/python3.10/site-packages/wtforms/fields/choices.py:200
 #, python-format
 msgid "'%(value)s' is not a valid choice for this field."
 msgid_plural "'%(value)s' are not valid choices for this field."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Неправильное значние поля: %(value)s"
+msgstr[1] "Неправильное значние поля: %(value)s"
+msgstr[2] "Неправильное значние поля: %(value)s"
 
 #: venv/lib/python3.10/site-packages/wtforms/fields/datetime.py:50
 msgid "Not a valid datetime value."
-msgstr ""
+msgstr "Недействительное значение даты и времени."
 
 #: venv/lib/python3.10/site-packages/wtforms/fields/datetime.py:76
 msgid "Not a valid date value."
-msgstr ""
+msgstr "Недействительное значение даты."
 
 #: venv/lib/python3.10/site-packages/wtforms/fields/datetime.py:102
 msgid "Not a valid time value."
-msgstr ""
+msgstr "Недостоверное значение времени."
 
 #: venv/lib/python3.10/site-packages/wtforms/fields/numeric.py:82
 #: venv/lib/python3.10/site-packages/wtforms/fields/numeric.py:92
 msgid "Not a valid integer value."
-msgstr ""
+msgstr "Недействительное целочисленное значение."
 
 #: venv/lib/python3.10/site-packages/wtforms/fields/numeric.py:167
 msgid "Not a valid decimal value."
-msgstr ""
+msgstr "Недействительное десятичное значение."
 
 #: venv/lib/python3.10/site-packages/wtforms/fields/numeric.py:196
 msgid "Not a valid float value."
-msgstr ""
+msgstr "Недопустимое значение поплавка."
 

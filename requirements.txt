@@ -9,7 +9,7 @@ flask-bootstrap
 flask-wtf
 flask-login
 Flask-Babel
-googletrans
+googletrans==4.0.0rc1
 phonenumbers
 WTForms
 email_validator
