@@ -51,7 +51,7 @@
                         <p class="text-secondary m-bottom-4">{{ player_1.full_name }}</p>
                         <p class="text-secondary m-bottom-4">{{ _("NTRP rating") }}: {{ player_1.skill }}</p>
                         <p class="text-secondary m-bottom-4">
-                            {{ _("Win rate") }}: {{ player_1.wins / player_1.losses if player_1.losses > 0 else 0 }}
+                            {{ _("Win rate") }}: {{ player_1.get_win_rate() }}
                         </p>
                     </div>
                     <img class="ml-4 mr-4" style="margin-bottom: 100px" src="{{ url_for('static', filename='buttons/close-24px.svg') }}" alt="X"/>
@@ -73,7 +73,7 @@
                             <p class="text-secondary m-bottom-4">{{ player_2.full_name }}</p>
                             <p class="text-secondary m-bottom-4">{{ _("NTRP rating") }}: {{ player_2.skill }}</p>
                             <p class="text-secondary m-bottom-4">
-                                {{ _("Win rate") }}: {{ player_2.wins / player_2.losses if player_2.losses > 0 else 0 }}
+                                {{ _("Win rate") }}: {{ player_2.get_win_rate() }}
                             </p>
                         {% endif %}
                     </div>

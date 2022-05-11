@@ -1,4 +1,6 @@
 """This module contains /users/login routes."""
+from gettext import gettext
+
 from flask import render_template, redirect, flash, url_for, make_response
 from flask_login import login_user
 
@@ -30,5 +32,5 @@ def submit_login():
         resp.set_cookie('language', 'ru')
         return resp
     else:
-        flash("Incorrect login!", "danger")
+        flash(gettext("Incorrect login!"), "danger")
         return render_template("login.html", form=form)

@@ -14,13 +14,13 @@ from modules.users.models.user import User
 class EditProfileForm(FlaskForm):
     """This is the create game form."""
 
-    full_name = StringField('Full name', validators=[DataRequired(), Length(min=3, max=100)])
-    picture = FileField('Profile image', validators=[FileAllowed(['jpg', 'png', 'jpeg']), FileSize(3_145_728)])
-    email = StringField('Email', validators=[Optional(strip_whitespace=True), Length(min=0, max=100), Email()])
-    phone = StringField('Phone', validators=[Optional(strip_whitespace=True), Length(min=0, max=12)])
-    skill = SelectField('NTRP Rating', choices=skill_choices)
+    full_name = StringField(gettext('Full name'), validators=[DataRequired(), Length(min=3, max=100)])
+    picture = FileField(gettext('Profile image'), validators=[FileAllowed(['jpg', 'png', 'jpeg']), FileSize(3_145_728)])
+    email = StringField(gettext('Email'), validators=[Optional(strip_whitespace=True), Length(min=0, max=100), Email()])
+    phone = StringField(gettext('Phone'), validators=[Optional(strip_whitespace=True), Length(min=0, max=12)])
+    skill = SelectField(gettext('NTRP Rating'), choices=skill_choices)
 
-    submit = SubmitField('Sign Up')
+    submit = SubmitField(gettext('Sign Up'))
 
     def __init__(self, current_user_email, current_user_phone, *args, **kwargs):
         """

@@ -10,32 +10,20 @@
     </select>
 {%- endmacro %}
 
-{% macro select_multiple_field(field, class='form-control' ) -%}
-    <select multiple class="{{ class }}" id="{{ field.label.field_id }}" name="{{ field.label.field_id }}">
-        {% for value, data in field.choices %}
-            {% if value == field.data %}
-                <option selected="selected" value="{{ value }}">{{ _(data) }}</option>
-            {% else %}
-                <option value="{{ value }}">{{ _(data) }}</option>
-            {% endif %}
-        {% endfor %}
-    </select>
-{%- endmacro %}
-
 {% macro make_string_field(field) -%}
-<div class="form-group">
-    <label for="{{ field.label.field_id }}" class="form-control-label">{{ _(field.label.text) }}</label>
-    {% if field.errors %}
-        {{ field(class="form-control form-control-lg is-invalid") }}
-        <div class="invalid-feedback>">
-            {% for error in field.errors %}
-                <span>{{error}}</span>
-            {% endfor %}
-        </div>
-    {% else %}
-        {{ field(class="form-control form-control-lg") }}
-    {% endif %}
-</div>
+    <div class="form-group">
+        <label for="{{ field.label.field_id }}" class="form-control-label">{{ field.label.text }}</label>
+        {% if field.errors %}
+            {{ field(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback>">
+                {% for error in field.errors %}
+                    <span>{{ _(error) }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ field(class="form-control form-control-lg") }}
+        {% endif %}
+    </div>
 {%- endmacro %}
 
 {% macro make_ntpr_info_dialog(skills) -%}
@@ -59,7 +47,7 @@
     <div class="content-section">
         <div class="media">
             <div class="media-body">
-                <legend class="border-bottom mb-2"><a href="{{ url_for("render_game_screen", game_id=game.id) }}">{{ game.name}}</a></legend>
+                <legend class="border-bottom mb-2"><a href="{{ url_for("render_game_screen", game_id=game.id) }}">{{ game.name }}</a></legend>
                 <p class="text-secondary m-bottom-4">{{ _("Time") }}: {{ format_date_time(game.game_date) }}</p>
                 {% if game.players %}
                     <div class="mb-2">

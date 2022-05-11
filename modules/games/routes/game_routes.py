@@ -43,7 +43,7 @@ def submit_winner(game_id: int):
         abort(404)
 
     winner_id = get_arg_or_400('winner_id')
-    winner = User.query.get(winner_id)
+    winner: User = User.query.get(winner_id)
     if not winner:
         abort(404)
 
@@ -51,9 +51,23 @@ def submit_winner(game_id: int):
     if user not in players or winner not in players:
         abort(403)
 
+    try:
+        losser: User = list(
+            filter(
+                lambda x: x.id != winner_id,
+                players
+            )
+        )[0]
+    except IndexError:
+        return abort(400)
+
     game.winner_id = winner_id
     game.status = GameStatus.COMPLETED
+    winner.wins += 1
+    losser.losses += 1
     db.session.add(game)
+    db.session.add(winner)
+    db.session.add(losser)
     db.session.commit()
 
     return redirect(url_for('render_game_screen', game_id=game_id))
