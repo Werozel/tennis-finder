@@ -1,10 +1,8 @@
 """This is the main module."""
-import alembic
-import alembic.config
 
 import config
 from modules.core.app import app
-from modules.core.db import db
+from modules.core.db import db, init_db
 
 # Necessary imports to register
 from modules.games.routes import game_routes
@@ -33,4 +31,4 @@ def init_db():
 
 if __name__ == "__main__":
     init_db()
-    app.run(port=config.PORT, debug=True)
+    app.run(port=config.PORT, debug=False)
