@@ -48,6 +48,7 @@ class User(db.Model, UserMixin):
             return
         picture_path = os.path.join(app.root_path, 'static/profile_pics', self.image_file_path)
         os.remove(picture_path)
+        self.image_file_path = None
 
     def set_user_picture(self, picture: FileStorage):
         random_hex = secrets.token_hex(16)
@@ -57,6 +58,8 @@ class User(db.Model, UserMixin):
         picture_path_tmp = picture_path + "-tmp"
         picture.save(picture_path_tmp)
         image = Image.open(picture_path_tmp)
+        if image.mode in ("RGBA", "P"):
+            image = image.convert("RGB")
         Image.fromarray(center_crop(np.array(image))).save(picture_path)
         os.remove(picture_path_tmp)
         self.image_file_path = picture_fn

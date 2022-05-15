@@ -16,18 +16,6 @@ __all__ = [
     game, find_game, create_game, user_games
 ]
 
-def init_db():
-    """
-    Init db and make all pending migrations.
-
-    :return: None
-    """
-    alembic_args = [
-        '--raiseerr',
-        'upgrade', 'head',
-    ]
-    alembic.config.main(argv=alembic_args)
-
 
 if __name__ == "__main__":
     init_db()
