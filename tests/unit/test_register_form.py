@@ -1,6 +1,7 @@
 import faker
 from wtforms import ValidationError
 
+from tests.helpers.random_user import get_random_user
 from modules.users.forms.register import RegistrationForm
 from modules.users.models.user import User
 
@@ -20,7 +21,8 @@ def test_register_form_validations(_db, db_session):
 
     fake_phone = "+79169999999"  # Faker`s phones not always counted as real
     RegistrationForm.validate_phone(None, DataContainer(fake_phone))
-    user = User(phone=fake_phone, full_name=fake.name(), login=fake.user_name(), password=fake.password(), skill=2)
+    user = get_random_user()
+    user.phone = fake_phone
     db_session.add(user)
     db_session.commit()
 
