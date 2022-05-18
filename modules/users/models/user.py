@@ -61,11 +61,13 @@ class User(db.Model, UserMixin):
         os.remove(picture_path_tmp)
         self.image_file_path = picture_fn
 
-    def get_win_rate(self):
-        if self.losses == 0:
-            return "100%" if self.wins > 0 else "0%"
+    def get_win_rate(self) -> float:
+        if self.wins + self.losses == 0:
+            return 0
+        return self.wins / (self.wins + self.losses)
 
-        return f"{self.wins / self.losses * 100}%"
+    def get_win_rate_str(self):
+        return f"{100 * self.get_win_rate()}%"
 
     def __eq__(self, other):
         """Check equality."""

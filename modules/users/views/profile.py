@@ -21,7 +21,6 @@ def render_user_profile(user_id: int):
     """Render user with id=user_id profile."""
     user = User.query.get(user_id)
     if not user:
-        # TODO: default errors template
         abort(404)
     my = user.id == current_user.id
     return render_template("profile.html", user=user, my=my)
