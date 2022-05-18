@@ -3,7 +3,10 @@ from enum import Enum
 
 from sqlalchemy import func
 
-from modules.core.db import db
+from modules.core.app_config import AppConfig
+
+
+db = AppConfig.db
 
 
 class GameStatus(Enum):

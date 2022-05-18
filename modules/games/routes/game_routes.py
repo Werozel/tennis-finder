@@ -6,11 +6,14 @@ from flask_babel import gettext
 from flask_login import current_user, login_required
 
 from helpers.args import get_arg_or_400
-from modules.core.app import app
-from modules.core.db import db
+from modules.core.app_config import AppConfig
 
 from modules.games.models.games import Game, GameStatus
 from modules.users.models.user import User
+
+
+app = AppConfig.app
+db = AppConfig.db
 
 
 @app.route("/games/join_game/<game_id>")

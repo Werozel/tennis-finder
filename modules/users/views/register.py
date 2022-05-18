@@ -4,11 +4,14 @@ from flask_login import login_user
 
 from helpers import crypto
 from helpers.args import get_arg_or_none
-from modules.core.app import app
-from modules.core.db import db
+from modules.core.app_config import AppConfig
 from modules.users.forms.register import RegistrationForm
 from modules.users.models.skill import valid_skills
 from modules.users.models.user import User
+
+
+app = AppConfig.app
+db = AppConfig.db
 
 
 @app.route("/users/register", methods=['GET'])

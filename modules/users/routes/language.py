@@ -2,7 +2,10 @@
 from flask import request, make_response, redirect
 
 from helpers.args import get_arg_or_none
-from modules.core.app import app
+from modules.core.app_config import AppConfig
+
+
+app = AppConfig.app
 
 
 @app.route("/change_language")

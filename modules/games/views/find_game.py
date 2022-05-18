@@ -4,10 +4,13 @@ from typing import List
 from flask import render_template
 from flask_login import login_required, current_user
 
-from modules.core.app import app
+from modules.core.app_config import AppConfig
 from modules.games.models.games import Game, GameStatus
 from modules.games.models.search_game import SearchGame
 from modules.users.models.user import User
+
+
+app = AppConfig.app
 
 
 @app.route("/games/find_game")

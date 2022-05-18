@@ -9,8 +9,9 @@ import sys
 
 sys.path = ['', '..'] + sys.path[1:]
 
-from main import db, config as service_config
-Base = db.declarative_base
+from main import config as service_config
+from modules.core.app_config import AppConfig
+Base = AppConfig.db.declarative_base
 db_url = service_config.DB_URL
 
 # this is the Alembic Config object, which provides
@@ -24,7 +25,7 @@ fileConfig(config.config_file_name)
 # add your model's MetaData object here
 # for 'autogenerate' support
 # from myapp import mymodel
-target_metadata = db.metadata
+target_metadata = AppConfig.db.metadata
 # target_metadata = None
 
 # other values from the config, defined by the needs of env.py,

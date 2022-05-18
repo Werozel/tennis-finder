@@ -5,6 +5,7 @@ config.*
 *$py.class
 gitblah*
 .idea/
+static/profile_pics
 
 # C extensions
 *.so

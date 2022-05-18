@@ -2,11 +2,14 @@
 from flask import render_template, redirect, url_for
 from flask_login import login_required, current_user
 
-from modules.core.app import app
-from modules.core.db import db
+from modules.core.app_config import AppConfig
 from modules.users.forms.edit_profile import EditProfileForm
 from modules.users.models.skill import valid_skills
 from modules.users.models.user import User
+
+
+app = AppConfig.app
+db = AppConfig.db
 
 
 @app.route("/profile/edit", methods=['get'])
