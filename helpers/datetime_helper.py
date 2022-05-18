@@ -3,7 +3,7 @@ import datetime
 
 from flask_babel import format_datetime
 
-from helpers.args import get_cookie
+import helpers.args
 
 DATETIME_FORMATS = {
     'en': ["EEEE, MMM dd, HH:mm", "EEEE, MMM dd YY, HH:mm"],
@@ -13,7 +13,7 @@ DATETIME_FORMATS = {
 
 def format_date_time(dt) -> str:
     """Format datetime depending on language."""
-    dt_format = DATETIME_FORMATS.get(get_cookie('language', 'ru'))
+    dt_format = DATETIME_FORMATS.get(helpers.args.get_cookie('language', 'ru'))
     if not dt_format:
         return format_datetime(dt, "EEEE, MMM dd, HH:mm").title()
     now = datetime.datetime.now()

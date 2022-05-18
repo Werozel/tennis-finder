@@ -7,9 +7,10 @@ from flask_login import LoginManager
 from flask_babel import Babel, gettext
 
 from config import SECRET_KEY
-from helpers.args import get_cookie
 from helpers.datetime_helper import format_date_time
 from helpers.user import is_authenticated
+
+import helpers.args
 
 cwd = os.getcwd()
 app = Flask(__name__,
@@ -20,7 +21,7 @@ app.config['SECRET_KEY'] = SECRET_KEY
 
 app.jinja_env.globals.update(len=len)
 app.jinja_env.globals.update(is_authenticated=is_authenticated)
-app.jinja_env.globals.update(get_cookie=get_cookie)
+app.jinja_env.globals.update(get_cookie=helpers.args.get_cookie)
 app.jinja_env.globals.update(format_date_time=format_date_time)
 
 bootstrap = Bootstrap(app)
@@ -37,7 +38,7 @@ babel = Babel(app)
 @babel.localeselector
 def get_locale():
     """Get babel locale from cookie."""
-    return get_cookie('language', 'ru')
+    return helpers.args.get_cookie('language', 'ru')
 
 
 @babel.timezoneselector

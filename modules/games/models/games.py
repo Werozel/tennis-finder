@@ -48,4 +48,6 @@ class Game(db.Model):
         if self.status != GameStatus.PENDING or user in self.players:
             raise ValueError
         self.players.append(user)
-        self.status = GameStatus.IN_PROGRESS
+
+        if len(self.players) > 1:
+            self.status = GameStatus.IN_PROGRESS

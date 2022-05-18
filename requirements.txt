@@ -15,5 +15,8 @@ WTForms
 email_validator
 flake8
 flake8_docstrings
+pytest
+faker
+pytest-flask-sqlalchemy
 numpy
 Pillow
