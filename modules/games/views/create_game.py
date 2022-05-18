@@ -2,10 +2,13 @@
 from flask import render_template, redirect, url_for
 from flask_login import login_required, current_user
 
-from modules.core.app import app
-from modules.core.db import db
+from modules.core.app_config import AppConfig
 from modules.games.forms.create_game import CreateGameForm
 from modules.games.models.games import Game
+
+
+app = AppConfig.app
+db = AppConfig.db
 
 
 @app.route("/games/create_game", methods=['GET'])

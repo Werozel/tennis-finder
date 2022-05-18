@@ -2,8 +2,11 @@
 from flask import render_template, abort
 from flask_login import login_required, current_user
 
-from modules.core.app import app
+from modules.core.app_config import AppConfig
 from modules.users.models.user import User
+
+
+app = AppConfig.app
 
 
 @app.route("/profile", methods=['get'])

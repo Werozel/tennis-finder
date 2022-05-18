@@ -4,7 +4,7 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
-from modules.core.db import db
+from modules.core.app_config import AppConfig
 
 
 @pytest.fixture(scope='session')
@@ -50,6 +50,6 @@ def _db(_empty_db):
     Provide the transactional fixtures with access to the database via a Flask-SQLAlchemy
     database connection.
     """
-    db.metadata.create_all(_empty_db.engine)
+    AppConfig.db.metadata.create_all(_empty_db.engine)
 
     return _empty_db

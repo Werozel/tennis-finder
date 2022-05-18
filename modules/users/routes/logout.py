@@ -2,7 +2,10 @@
 from flask import url_for, redirect
 from flask_login import login_required, logout_user
 
-from modules.core.app import app
+from modules.core.app_config import AppConfig
+
+
+app = AppConfig.app
 
 
 @app.route("/logout", methods=['get'])

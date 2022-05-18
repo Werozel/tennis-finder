@@ -9,13 +9,16 @@ from sqlalchemy import func
 from werkzeug.datastructures import FileStorage
 
 from helpers.img import center_crop
-from modules.core.app import login_manager, app
-from modules.core.db import db
+from modules.core.app_config import AppConfig
 from modules.games.models.games import game_participants_table
 from PIL import Image
 
 
-@login_manager.user_loader
+db = AppConfig.db
+app = AppConfig.app
+
+
+@AppConfig.login_manager.user_loader
 def load_user(user_id):
     """Load user by user_id."""
     return User.query.get(int(user_id))

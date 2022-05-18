@@ -4,8 +4,11 @@ from typing import Optional
 from flask import render_template, abort
 from flask_login import login_required, current_user
 
-from modules.core.app import app
+from modules.core.app_config import AppConfig
 from modules.games.models.games import Game, GameStatus
+
+
+app = AppConfig.app
 
 
 @app.route("/games/<game_id>")

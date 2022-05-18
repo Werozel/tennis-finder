@@ -6,9 +6,12 @@ from flask_login import login_user
 
 from helpers import crypto
 from helpers.args import get_arg_or_none
-from modules.core.app import app
+from modules.core.app_config import AppConfig
 from modules.users.forms.login import LoginForm
 from modules.users.models.user import User
+
+
+app = AppConfig.app
 
 
 @app.route("/users/login", methods=['GET'])

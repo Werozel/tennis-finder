@@ -2,9 +2,12 @@
 from flask import render_template
 from flask_login import current_user, login_required
 
-from modules.core.app import app
+from modules.core.app_config import AppConfig
 from modules.games.models.games import GameStatus
 from modules.users.models.user import User
+
+
+app = AppConfig.app
 
 
 @app.route("/my_games", methods=['get'])

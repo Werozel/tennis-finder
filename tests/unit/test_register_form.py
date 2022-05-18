@@ -3,7 +3,6 @@ from wtforms import ValidationError
 
 from tests.helpers.random_user import get_random_user
 from modules.users.forms.register import RegistrationForm
-from modules.users.models.user import User
 
 
 class PasswordContainer:
@@ -46,5 +45,3 @@ def test_register_form_validations(_db, db_session):
         pass
     else:
         assert False
-
-
