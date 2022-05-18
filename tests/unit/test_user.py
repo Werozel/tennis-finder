@@ -1,5 +1,6 @@
 from werkzeug.datastructures import FileStorage
 
+from modules.core.app import app
 from tests.helpers.random_user import get_random_user
 
 
@@ -16,12 +17,13 @@ def test_user():
     user.delete_user_picture()
     assert user.image_file_path != path
 
-    user.wins = 10
-    user.losses = 0
-    assert user.get_win_rate() == "100%"
+    with app.app_context():
+        user.wins = 10
+        user.losses = 0
+        assert user.get_win_rate() == 1
 
-    user.losses = 5
-    assert user.get_win_rate() == "50%"
+        user.losses = 10
+        assert user.get_win_rate() == 0.5
 
-    user.wins = 0
-    assert user.get_win_rate() == "0.0%"
+        user.wins = 0
+        assert user.get_win_rate() == 0
