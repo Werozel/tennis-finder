@@ -3,6 +3,7 @@ import os
 import platform
 import secrets
 import numpy as np
+from flask_babel import format_percent
 
 from flask_login import UserMixin
 from sqlalchemy import func
@@ -70,7 +71,7 @@ class User(db.Model, UserMixin):
         return self.wins / (self.wins + self.losses)
 
     def get_win_rate_str(self):
-        return f"{100 * self.get_win_rate()}%"
+        return format_percent(self.get_win_rate())
 
     def __eq__(self, other):
         """Check equality."""
