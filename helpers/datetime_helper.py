@@ -11,8 +11,13 @@ DATETIME_FORMATS = {
 }
 
 
-def format_date_time(dt) -> str:
-    """Format datetime depending on language."""
+def format_date_time(dt: datetime.datetime) -> str:
+    """
+    Format datetime depending on language.
+
+    :param dt: datetime object to format
+    :return: formatted datetime string
+    """
     dt_format = DATETIME_FORMATS.get(helpers.args.get_cookie('language', 'ru'))
     if not dt_format:
         return format_datetime(dt, "EEEE, MMM dd, HH:mm").title()

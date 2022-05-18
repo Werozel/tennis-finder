@@ -11,7 +11,7 @@ def hash_password(s: str, user_login: str):
 
     :param s: User password
     :param user_login: User login
-    :return: str
+    :return: hash password string
     """
     tmp: str = binascii.hexlify(hashlib.pbkdf2_hmac('md5', str.encode(s), str.encode(salt), 2**16)).decode()
     return binascii.hexlify(hashlib.pbkdf2_hmac('sha256', str.encode(tmp), str.encode(user_login), 2**16)).decode()
