@@ -1,6 +1,5 @@
 """This module contains user models."""
 import os
-import platform
 import secrets
 import numpy as np
 from flask_babel import format_percent
@@ -45,13 +44,20 @@ class User(db.Model, UserMixin):
     updated_at = db.Column(db.TIMESTAMP, server_default=func.now(), onupdate=func.now())
 
     def delete_user_picture(self):
+        """ Delete user picture """
         if not self.image_file_path or self.image_file_path == 'default.jpg':
             return
         picture_path = os.path.join(app.root_path, 'static/profile_pics', self.image_file_path)
         os.remove(picture_path)
-        self.image_file_path = None
+        self.image_file_path = 'default.jpg'
 
     def set_user_picture(self, picture: FileStorage):
+        """
+        Set user picture
+
+        :param picture: FileStorage object with user picture
+        :return: None
+        """
         random_hex = secrets.token_hex(16)
         _, f_ext = os.path.splitext(picture.filename)
         picture_fn = random_hex + f_ext
@@ -66,13 +72,29 @@ class User(db.Model, UserMixin):
         self.image_file_path = picture_fn
 
     def get_win_rate(self) -> float:
+        """
+        Get user win rate
+
+        :return: float
+        """
         if self.wins + self.losses == 0:
             return 0
         return self.wins / (self.wins + self.losses)
 
-    def get_win_rate_str(self):
+    def get_win_rate_str(self) -> str:
+        """
+        Get user win rate as a string
+
+        :return: str
+        """
+
         return format_percent(self.get_win_rate())
 
-    def __eq__(self, other):
-        """Check equality."""
+    def __eq__(self, other: 'User') -> bool:
+        """
+        Check equality between two users
+
+        :param other: User object
+        :return: true if users are equal else false
+        """
         return self.id == other.id

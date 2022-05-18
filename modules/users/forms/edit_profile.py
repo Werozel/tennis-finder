@@ -22,7 +22,7 @@ class EditProfileForm(FlaskForm):
 
     submit = SubmitField('Sign Up')
 
-    def __init__(self, current_user_email, current_user_phone, *args, **kwargs):
+    def __init__(self, current_user_email: str, current_user_phone: str, *args, **kwargs):
         """
         Form init method.
 
@@ -36,7 +36,7 @@ class EditProfileForm(FlaskForm):
         self.current_user_phone = current_user_phone
 
     def validate_phone(self, phone):
-        """Validate and check uniqueness of the phone number."""
+        """Validate phone and check that it's not taken."""
         if not phone.data:
             return
         try:
@@ -54,7 +54,7 @@ class EditProfileForm(FlaskForm):
             raise ValidationError(gettext('This phone number is taken'))
 
     def validate_email(self, email):
-        """Validate user email."""
+        """Validate if email is already taken."""
         if not email.data:
             return
         if self.current_user_email == email.data:

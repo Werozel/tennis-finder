@@ -16,7 +16,12 @@ from modules.users.models.user import User
 @app.route("/games/join_game/<game_id>")
 @login_required
 def join_game(game_id: int):
-    """Join game with <game_id>."""
+    """
+    Join game with <game_id>.
+
+    :param game_id: int id of the game to join
+    :return: None
+    """
     user: User = current_user
     game: Optional[Game] = Game.query.get(game_id)
     if not game:
@@ -36,7 +41,12 @@ def join_game(game_id: int):
 @app.route("/games/submit_winner/<game_id>")
 @login_required
 def submit_winner(game_id: int):
-    """Set winner in a Game with game_id."""
+    """
+    Set winner in a Game with game_id.
+
+    :param game_id: int id of the game
+    :return: None
+    """
     user: User = current_user
     game: Game = Game.query.get(game_id)
     if not game:

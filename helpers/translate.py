@@ -15,7 +15,12 @@ is_windows = sys.platform.startswith('win32')
 
 
 def write_new(text: str):
-    """Write new text with correct encoding."""
+    """
+    Write new text with correct encoding.
+
+    :param text: str ti write to the file
+    :return: None
+    """
     if is_windows:
         text.encode("utf8")
     new_file.write(text)
