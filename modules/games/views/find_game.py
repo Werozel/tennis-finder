@@ -14,7 +14,6 @@ from modules.users.models.user import User
 @login_required
 def render_find_game():
     """Render find game screen."""
-    # TODO: Complete sorting algorythm
     user: User = current_user
     games: List[Game] = Game.query.filter(Game.status == GameStatus.PENDING).all()
 
