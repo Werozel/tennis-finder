@@ -1,6 +1,6 @@
 from werkzeug.datastructures import FileStorage
 
-from modules.core.app import app
+from modules.core.app_config import AppConfig
 from tests.helpers.random_user import get_random_user
 
 
@@ -17,7 +17,7 @@ def test_user():
     user.delete_user_picture()
     assert user.image_file_path != path
 
-    with app.app_context():
+    with AppConfig.app.app_context():
         user.wins = 10
         user.losses = 0
         assert user.get_win_rate() == 1
