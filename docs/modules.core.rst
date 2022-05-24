@@ -12,18 +12,10 @@ Subpackages
 Submodules
 ----------
 
-modules.core.app module
------------------------
+modules.core.app\_config module
+-------------------------------
 
-.. automodule:: modules.core.app
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-modules.core.db module
-----------------------
-
-.. automodule:: modules.core.db
+.. automodule:: modules.core.app_config
    :members:
    :undoc-members:
    :show-inheritance:

@@ -75,5 +75,8 @@ autodoc_mock_imports = [
     "flask_sqlalchemy",
     "flask_bootstrap",
     "flask_babel",
-    "flask_login"
+    "flask_login",
+    "wtforms",
+    "httpcore",
+    "werkzeug"
 ]
