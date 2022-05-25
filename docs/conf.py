@@ -78,5 +78,7 @@ autodoc_mock_imports = [
     "flask_login",
     "wtforms",
     "httpcore",
-    "werkzeug"
+    "werkzeug",
+    "Pillow",
+    "PIL"
 ]

@@ -20,52 +20,32 @@ import helpers.args
 
 class AppConfig:
 
-    app: Flask = None
-    bootstrap: Bootstrap = None
-    login_manager: LoginManager = None
-    babel: Babel = None
-    db: SQLAlchemy = None
+    _cwd = os.getcwd()
+    app = Flask(__name__,
+                template_folder=_cwd + "/templates",
+                static_folder=_cwd + "/static",
+                root_path=_cwd)
+    bootstrap = Bootstrap(app)
+    login_manager = LoginManager(app)
+    babel = Babel(app)
+    db = SQLAlchemy(app)
 
     @staticmethod
     def init():
-        cwd = os.getcwd()
-        app = Flask(__name__,
-                    template_folder=cwd + "/templates",
-                    static_folder=cwd + "/static",
-                    root_path=cwd)
 
-        app.config['SECRET_KEY'] = SECRET_KEY
+        AppConfig.app.config['SECRET_KEY'] = SECRET_KEY
 
-        app.jinja_env.globals.update(len=len)
-        app.jinja_env.globals.update(is_authenticated=is_authenticated)
-        app.jinja_env.globals.update(get_cookie=helpers.args.get_cookie)
-        app.jinja_env.globals.update(format_date_time=format_date_time)
+        AppConfig.app.jinja_env.globals.update(len=len)
+        AppConfig.app.jinja_env.globals.update(is_authenticated=is_authenticated)
+        AppConfig.app.jinja_env.globals.update(get_cookie=helpers.args.get_cookie)
+        AppConfig.app.jinja_env.globals.update(format_date_time=format_date_time)
 
-        bootstrap = Bootstrap(app)
+        AppConfig.login_manager.login_view = 'render_login'
+        AppConfig.login_manager.login_message_category = 'warning'
+        AppConfig.login_manager.login_message = gettext("Please log in to view this page.")
+        AppConfig.login_manager.localize_callback = gettext
 
-        login_manager = LoginManager(app)
-        login_manager.login_view = 'render_login'
-        login_manager.login_message_category = 'warning'
-        login_manager.login_message = gettext("Please log in to view this page.")
-        login_manager.localize_callback = gettext
-
-        babel = Babel(app)
-
-        @babel.localeselector
-        def get_locale():
-            """Get babel locale from cookie."""
-            return helpers.args.get_cookie('language', 'ru')
-
-        @babel.timezoneselector
-        def get_timezone():
-            """Get user timezone."""
-            user = getattr(g, 'user', None)
-            if user is not None:
-                return user.timezone
-
-        app.config['SQLALCHEMY_DATABASE_URI'] = config.DB_URL
-        db = SQLAlchemy(app)
-        AppConfig.db = db
+        AppConfig.app.config['SQLALCHEMY_DATABASE_URI'] = config.DB_URL
 
         logging.basicConfig(level=logging.DEBUG)
         logging.info("Starting migrations!")
@@ -76,7 +56,16 @@ class AppConfig:
         ]
         alembic.config.main(argv=alembic_args)
 
-        AppConfig.app = app
-        AppConfig.bootstrap = bootstrap
-        AppConfig.login_manager = login_manager
-        AppConfig.babel = babel
+    @staticmethod
+    @babel.localeselector
+    def get_locale():
+        """Get babel locale from cookie."""
+        return helpers.args.get_cookie('language', 'ru')
+
+    @staticmethod
+    @babel.timezoneselector
+    def get_timezone():
+        """Get user timezone."""
+        user = getattr(g, 'user', None)
+        if user is not None:
+            return user.timezone
