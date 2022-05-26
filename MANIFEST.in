@@ -1,0 +1,13 @@
+recursive-include tennis_finder/alembic *
+recursive-include tennis_finder/helpers *.py
+recursive-include tennis_finder/modules *.py
+recursive-include tennis_finder/static *
+recursive-include tennis_finder/templates *
+recursive-include tennis_finder/tests *.py
+recursive-include tennis_finder/translations *.po
+recursive-include tennis_finder *.py
+include tennis_finder/alembic.ini
+include tennis_finder/translate.sh
+include Makefile
+include requirements.txt
+include requirements-dev.txt

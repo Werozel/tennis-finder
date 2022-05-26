@@ -1,0 +1,2 @@
+requires = ["gunicorn", "flask", "sqlalchemy", "Flask-SQLAlchemy", "alembic", "psycopg2-binary", "jinja2", "flask-bootstrap", "flask-wtf", "flask-login", "Flask-Babel", "googletrans==4.0.0rc1", "phonenumbers", "WTForms", "email_validator", "flake8", "flake8_docstrings", "pytest", "faker", "pytest-flask-sqlalchemy", "numpy", "Pillow"]
+build-backend = "setuptools.build_meta"
