@@ -9,8 +9,8 @@ import sys
 
 sys.path = ['', '..'] + sys.path[1:]
 
-from main import config as service_config
-from modules.core.app_config import AppConfig
+from tennis_finder.main import config as service_config
+from tennis_finder.modules.core.app_config import AppConfig
 Base = AppConfig.db.declarative_base
 db_url = service_config.DB_URL
 
