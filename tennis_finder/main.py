@@ -28,6 +28,8 @@ def run_app():
         game, find_game, create_game, user_games, index
     ]
 
+    init_db()
+
     AppConfig.app.run(host="0.0.0.0", port=config.PORT, debug=False)
 
 

@@ -22,7 +22,7 @@ class AppConfig:
     app = Flask(__name__,
                 template_folder=_cwd + "/tennis_finder/templates",
                 static_folder=_cwd + "/tennis_finder/static",
-                root_path=_cwd)
+                root_path=_cwd + "/tennis_finder")
     bootstrap = Bootstrap(app)
     login_manager = LoginManager(app)
     babel = Babel(app)
