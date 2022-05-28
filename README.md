@@ -19,7 +19,7 @@
 Система поддерживает два языка: русский и английский, переключать язык можно нажав на флаг в правом верхнем углу страницы
 
 ``` shell
-pybabel compile -f -d translations
+pybabel compile -f -d tennis_finder/translations
 ```
 
 ## Документация

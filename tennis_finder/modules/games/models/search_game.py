@@ -1,3 +1,4 @@
+"""This module contains definition for SearchGame class."""
 from dataclasses import dataclass
 
 from tennis_finder.modules.games.models.games import Game
@@ -6,7 +7,7 @@ from tennis_finder.modules.users.models.user import User
 
 @dataclass
 class SearchGame:
-    """Model to sort games in search screen"""
+    """Model to sort games in search screen."""
 
     game: Game
     opponent_skill: float
@@ -20,14 +21,13 @@ class SearchGame:
         :param opponent_win_rate: float win rate value of the opponent
         :return: float sorting score
         """
-
         return 10 * abs(opponent_skill - self.opponent_skill) + \
             abs(opponent_win_rate - self.opponent_win_rate)
 
     @staticmethod
     def from_game(game: Game) -> 'SearchGame':
         """
-        Create SearchGame model from Game model
+        Create SearchGame model from Game model.
 
         :param game: Game obj to build SearchGame upon
         :return: SearchGame

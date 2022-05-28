@@ -1,6 +1,4 @@
 """This module contains create game form."""
-from gettext import gettext
-
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, DateTimeLocalField
 from wtforms.validators import DataRequired, Length, InputRequired

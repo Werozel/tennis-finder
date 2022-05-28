@@ -16,11 +16,12 @@ import tennis_finder.helpers.args
 
 
 class AppConfig:
+    """This is the main config class in the project."""
 
     _cwd = os.getcwd()
     app = Flask(__name__,
-                template_folder=_cwd + "/templates",
-                static_folder=_cwd + "/static",
+                template_folder=_cwd + "/tennis_finder/templates",
+                static_folder=_cwd + "/tennis_finder/static",
                 root_path=_cwd)
     bootstrap = Bootstrap(app)
     login_manager = LoginManager(app)
@@ -29,7 +30,7 @@ class AppConfig:
 
     @classmethod
     def init(cls):
-
+        """Init app config."""
         cls.app.config['SECRET_KEY'] = SECRET_KEY
 
         cls.app.jinja_env.globals.update(len=len)

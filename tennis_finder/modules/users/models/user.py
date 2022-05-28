@@ -47,7 +47,7 @@ class User(db.Model, UserMixin):
     updated_at = db.Column(db.TIMESTAMP, server_default=func.now(), onupdate=func.now())
 
     def delete_user_picture(self):
-        """ Delete user picture """
+        """Delete user picture."""
         if not self.image_file_path or self.image_file_path == 'default.jpg':
             return
         picture_path = os.path.join(app.root_path, 'tennis_finder/static/profile_pics', self.image_file_path)
@@ -56,7 +56,7 @@ class User(db.Model, UserMixin):
 
     def set_user_picture(self, picture: FileStorage):
         """
-        Set user picture
+        Set user picture.
 
         :param picture: FileStorage object with user picture
         :return: None
@@ -76,7 +76,7 @@ class User(db.Model, UserMixin):
 
     def get_win_rate(self) -> float:
         """
-        Get user win rate
+        Get user win rate.
 
         :return: float
         """
@@ -86,18 +86,17 @@ class User(db.Model, UserMixin):
 
     def get_win_rate_str(self) -> str:
         """
-        Get user win rate as a string
+        Get user win rate as a string.
 
         :return: str
         """
-
         return format_percent(self.get_win_rate())
 
     def __eq__(self, other: 'User') -> bool:
         """
-        Check equality between two users
+        Check equality between two users.
 
         :param other: User object
         :return: true if users are equal else false
         """
-        return self.id == other.id
+        return isinstance(other, User) and self.id == other.id

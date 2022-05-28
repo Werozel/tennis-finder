@@ -6,6 +6,7 @@ from tennis_finder.modules.core.app_config import AppConfig
 
 
 def init_db():
+    """Apply all pending migrations to db."""
     alembic_args = [
         '--raiseerr',
         'upgrade', 'head',
@@ -14,6 +15,7 @@ def init_db():
 
 
 def run_app():
+    """Run the application."""
     # Necessary imports to register
     from tennis_finder.modules.games.routes import game_routes
     from tennis_finder.modules.users.views import login, register, profile, edit_profile
@@ -21,12 +23,12 @@ def run_app():
     from tennis_finder.modules.core.routes import errors, index
     from tennis_finder.modules.games.views import game, find_game, create_game, user_games
 
-    __all__ = [
+    __all__ = [  # noqa
         game_routes, login, register, profile, edit_profile, language, logout, errors,
         game, find_game, create_game, user_games, index
     ]
 
-    AppConfig.app.run(port=config.PORT, debug=False)
+    AppConfig.app.run(host="0.0.0.0", port=config.PORT, debug=False)
 
 
 if __name__ == "__main__":

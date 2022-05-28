@@ -1,16 +1,17 @@
+"""This module contains image helper functions (such as image crop etc)."""
+
 import numpy as np
 
 
 def center_crop(img: np.array, new_width: int = None, new_height: int = None):
     """
-    Crops an image to fit a circle
+    Crops an image to fit a circle.
 
     :param img: numpy.array object
     :param new_width: int with new width of a picture
     :param new_height: int with new height of a picture
     :return: numpy.array object with cropped image
     """
-
     width = img.shape[1]
     height = img.shape[0]
 

@@ -1,3 +1,4 @@
+"""Run the tennis_finder package."""
 from tennis_finder.main import run_app
 
 
