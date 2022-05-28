@@ -1,0 +1,23 @@
+services:
+  web:
+    build: .
+    ports:
+      - "5555:5555"
+    environment:
+      DB_HOST: db
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: "postgres:13.4-alpine"
+    restart: always
+    expose:
+      - "5432"
+    environment:
+      POSTGRES_USER: tennis
+      POSTGRES_PASSWORD: tennisPass
+      POSTGRES_DB: tennis
+    healthcheck:
+      test: "pg_isready --username=tennis --dbname=tennis && psql --username=tennis --dbname=tennis --list"
+      timeout: 10s
+      retries: 20
