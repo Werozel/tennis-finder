@@ -50,7 +50,7 @@ class User(db.Model, UserMixin):
         """Delete user picture."""
         if not self.image_file_path or self.image_file_path == 'default.jpg':
             return
-        picture_path = os.path.join(app.root_path, 'tennis_finder/static/profile_pics', self.image_file_path)
+        picture_path = os.path.join(app.root_path, 'static/profile_pics', self.image_file_path)
         os.remove(picture_path)
         self.image_file_path = 'default.jpg'
 
@@ -64,7 +64,7 @@ class User(db.Model, UserMixin):
         random_hex = secrets.token_hex(16)
         _, f_ext = os.path.splitext(picture.filename)
         picture_fn = random_hex + f_ext
-        picture_path = os.path.join(app.root_path, 'tennis_finder/static/profile_pics', picture_fn)
+        picture_path = os.path.join(app.root_path, 'static/profile_pics', picture_fn)
         picture_path_tmp = picture_path + "-tmp"
         picture.save(picture_path_tmp)
         image = Image.open(picture_path_tmp)
