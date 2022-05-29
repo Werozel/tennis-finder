@@ -1,3 +1,11 @@
+all: compile-babel
+
+build-dist:
+	python -m build --sdist
+
+build-wheel:
+	python -m build --wheel
+
 create-migrations:
 	alembic revision --autogenerate
 
