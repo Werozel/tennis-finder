@@ -1,7 +1,7 @@
 """This is the main module."""
 import alembic.config
 
-import tennis_finder.config_1 as config
+import tennis_finder.config as config
 from tennis_finder.modules.core.app_config import AppConfig
 
 
