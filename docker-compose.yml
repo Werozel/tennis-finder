@@ -2,7 +2,7 @@ services:
   web:
     build: .
     ports:
-      - "5555:5555"
+      - "5544:5544"
     environment:
       DB_HOST: db
     depends_on:
