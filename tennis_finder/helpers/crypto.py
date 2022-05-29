@@ -2,7 +2,7 @@
 import binascii
 import hashlib
 
-from tennis_finder.config import salt
+from tennis_finder.config_1 import salt
 
 
 def hash_password(s: str, user_login: str):

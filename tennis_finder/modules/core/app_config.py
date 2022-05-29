@@ -7,8 +7,8 @@ from flask_login import LoginManager
 from flask_babel import Babel, gettext
 from flask_sqlalchemy import SQLAlchemy
 
-import tennis_finder.config as config
-from tennis_finder.config import SECRET_KEY
+import tennis_finder.config_1 as config
+from tennis_finder.config_1 import SECRET_KEY
 from tennis_finder.helpers.datetime_helper import format_date_time
 from tennis_finder.helpers.user import is_authenticated
 
