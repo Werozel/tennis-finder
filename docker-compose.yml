@@ -17,6 +17,8 @@ services:
       POSTGRES_USER: tennis
       POSTGRES_PASSWORD: tennisPass
       POSTGRES_DB: tennis
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
     healthcheck:
       test: "pg_isready --username=tennis --dbname=tennis && psql --username=tennis --dbname=tennis --list"
       timeout: 10s
