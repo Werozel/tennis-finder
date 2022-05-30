@@ -1,5 +1,7 @@
 """This module contains initial Flask app setup."""
+import logging
 import os
+import traceback
 
 from flask import Flask, g
 from flask_bootstrap import Bootstrap
@@ -62,4 +64,7 @@ class AppConfig:
             return user.timezone
 
 
-AppConfig.init()
+try:
+    AppConfig.init()
+except Exception:
+    logging.error(traceback.format_exc())

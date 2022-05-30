@@ -16,7 +16,7 @@ compile-babel:
 	pybabel compile -f -d tennis_finder/translations
 
 generate-docs:
-	sphinx-apidoc -o docs .
+	sphinx-apidoc -o docs ./tennis_finder
 	make -C docs clean html
 
 up:
