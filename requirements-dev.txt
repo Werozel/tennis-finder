@@ -2,3 +2,4 @@ wheel
 setuptools
 build
 project-makefile
+sphinx

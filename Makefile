@@ -15,6 +15,10 @@ upgrade:
 compile-babel:
 	pybabel compile -f -d tennis_finder/translations
 
+generate-docs:
+	sphinx-apidoc -o docs .
+	make -C docs clean html
+
 up:
 	docker-compose up
 rebuild:
